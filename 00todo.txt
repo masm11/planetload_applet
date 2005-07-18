@@ -1,0 +1,113 @@
+*: done
+-: todo
+
+
+* set_vert
+  うまくいかん。
+  destroy(from) をやめて、hide(from) にしてみるか?
+  rect は正しげなのに、area は なぜ 1x1? なぜ食い違う?
+* 起動時にも orient を見る。
+* set_size 機能。
+* scheme が表示されない。
+  単なる label なのに…
+* graph に name を表示。
+  label は使えないので、自前で描画。
+* appconf
+* appconf_load、値をチェック。
+* destroy_cb の返り値?
+* 二重起動を防止するには?
+* prop_iface の name を変更したときに、preferences のリストも変える。
+* scheme 名 label の on/off。
+* 初回起動時の設定。
+* add より copy の方が良いか?
+  -> copy を作ってテスト。
+* nsa_iface_new -> nsa_iface_new_with_params。
+  パラメータはまとめて与えた方が間違いが少ない。
+* メニューに scheme list を追加。
+* scheme list を得る方法を preferences で設定。
+- About とか Help とか。
+* gettext。
+- font の変更とか、signal でうまくいかんか?
+* README に --prefix=[gnome の prefix] と書く。
+- *.server のインストール先は自動でやりたい。
+* configure しなおしても *.server.in がかわらない。
+* intltool へん。漢字が出ない。
+* GNOME_PlanetloadApplet.xml を読み込んで、それをいじってメニューに。
+* configure.ac にメールアドレス。
+* GNOME_PlanetloadApplet.xml をインストール。
+* destroy_cb での dialog の消去のしかた。
+* add時の初期設定値。
+  add やめ。
+* tips が出ない / font がデフォルト。
+* gconf schema。
+   /schemas/apps/planetload_applet/…
+* scheme名ラベルを左クリックで、scheme メニュー。
+* down時のテキスト色。
+* planetload OFF で、全部 OFF。
+   OFF->ON でリストを再取得。
+* 残り1個で削除を押せなく。
+* 選択してない時はボタンを押せなく。
+* destroy できない…
+* menu に追加と submenu と、どっちがいい?
+* alpha なしで軽いモード。
+* preferences の list の column を enum に。
+* append_iface_parameter_t はやっぱり不要。
+* painter を class にして、alpha版と軽量版を作成。
+* PAINTER_{WIDTH,HEIGHT}を移動。
+* nsa_fine_painter_new の色確保を移動。
+* **_paint_shadow() は共通に?
+* if (window != NULL) -> if (REALIZED(widget))
+* light、中間色。
+* int64_t、configure でチェック。
+* light、init() で pixmap とか作らないように。あと、その他初期化。
+- 色って解放する必要あるの?
+x bps_to_meter は、共通にしたい気分。
+- README 修正。
+* po 更新。
+- painter切り替え時、メモリリークしてる。
+- lightpainter、FG が透明で FG2 が不透明だったら?
+- style_set、う〜ん..
+
+
+* history list を削っていく。
+* preferences。
+   width, height
+   realtime に変更。
+
+   network interface:  eth0
+   width:              40
+   update interval:    1000 ms
+   max:
+      auto or 1Tbps or 1Gbps or 1Mbps or 1Kbps
+      auto だけでいいと思う。
+
+   color:
+      fg   **  o 透明
+      bg   **  o 透明
+      text **  o 透明
+      down **  o 透明
+
+   click command:      /sbin/ifctl eth1 toggle
+
+* iface 名 表示。
+* up/down を取得。
+* 0 でなくて 1dot 未満だったら、1dot に。
+* click したらコマンド実行。
+* 対数グラフにする?
+* 周囲に枠。
+* 終了時に segv。
+* 起動時のごみ。
+* シフト。
+* tooltips に up/down, address, bps。
+- gc とか、一度作ればそれで良いはず。
+* rescale
+* 倍率の横線。
+* height 取得。
+* property の配置。hbar の色変更ボタン。
+* もっと alpha に対応。
+* 通信速度確認。
+- configureで必要なものがなかった場合。
+- Help とか About とか。
+
+
+;

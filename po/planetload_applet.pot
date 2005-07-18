@@ -1,0 +1,300 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-07-18 02:56+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/nsapainter.c:95
+msgid "NsaIface Pointer"
+msgstr ""
+
+#: src/nsapainter.c:96
+msgid "The pointer to the nsa_iface"
+msgstr ""
+
+#: src/preferences.c:291 src/preferences.c:317
+msgid "Interfaces"
+msgstr ""
+
+#: src/preferences.c:330
+msgid "Add"
+msgstr ""
+
+#: src/preferences.c:335
+msgid "Copy"
+msgstr ""
+
+#: src/preferences.c:340
+msgid "Remove"
+msgstr ""
+
+#: src/preferences.c:350
+msgid "Edit..."
+msgstr ""
+
+#: src/preferences.c:358
+msgid "Up"
+msgstr ""
+
+#: src/preferences.c:363
+msgid "Down"
+msgstr ""
+
+#: src/preferences.c:437
+msgid "Options"
+msgstr ""
+
+#: src/preferences.c:443
+msgid "Font:"
+msgstr ""
+
+#: src/preferences.c:453
+msgid "Update Interval:"
+msgstr ""
+
+#: src/preferences.c:462
+msgid "Painter:"
+msgstr ""
+
+#: src/preferences.c:466
+msgid "Fine"
+msgstr ""
+
+#: src/preferences.c:472
+msgid "Light"
+msgstr ""
+
+#: src/preferences.c:478
+msgid "Split"
+msgstr ""
+
+#: src/preferences.c:581
+msgid "Planet"
+msgstr ""
+
+#: src/preferences.c:594
+msgid "Command to Get Scheme List:"
+msgstr ""
+
+#: src/preferences.c:604
+msgid "Command to Change Scheme:"
+msgstr ""
+
+#: src/preferences.c:614
+msgid "Scheme Label:"
+msgstr ""
+
+#: src/preferences.c:651
+msgid "Planetload Applet Settings"
+msgstr ""
+
+#: src/pref_iface.c:130
+msgid "Text:"
+msgstr ""
+
+#: src/pref_iface.c:131 src/pref_iface.c:148
+msgid "UP:"
+msgstr ""
+
+#: src/pref_iface.c:133 src/pref_iface.c:150
+msgid "DIAL:"
+msgstr ""
+
+#: src/pref_iface.c:135 src/pref_iface.c:152
+msgid "DOWN:"
+msgstr ""
+
+#: src/pref_iface.c:138
+msgid "Bar:"
+msgstr ""
+
+#: src/pref_iface.c:141
+msgid "Foreground:"
+msgstr ""
+
+#: src/pref_iface.c:142
+msgid "OUT:"
+msgstr ""
+
+#: src/pref_iface.c:144
+msgid "IN:"
+msgstr ""
+
+#: src/pref_iface.c:147
+msgid "Background:"
+msgstr ""
+
+#: src/pref_iface.c:159
+msgid "Colors"
+msgstr ""
+
+#: src/pref_iface.c:229
+msgid "Interface Settings"
+msgstr ""
+
+#: src/pref_iface.c:243
+msgid "Network Interface:"
+msgstr ""
+
+#: src/pref_iface.c:252
+msgid "PPP:"
+msgstr ""
+
+#: src/pref_iface.c:263
+msgid "PPP Lock File:"
+msgstr ""
+
+#: src/pref_iface.c:272
+msgid "Size:"
+msgstr ""
+
+#: src/pref_iface.c:281
+msgid "Click Command When Up:"
+msgstr ""
+
+#: src/pref_iface.c:290
+msgid "Click Command When Down:"
+msgstr ""
+
+#: src/about.c:60
+msgid ""
+"Released under the GNU General Public License.\n"
+"\n"
+"A network traffic monitor, cooperative with Planet."
+msgstr ""
+
+#: PlanetloadApplet.server.in.in.h:1
+msgid "Internet"
+msgstr ""
+
+#: PlanetloadApplet.server.in.in.h:2
+msgid "Network Traffic Monitor"
+msgstr ""
+
+#: PlanetloadApplet.xml.h:1
+msgid "_About..."
+msgstr ""
+
+#: PlanetloadApplet.xml.h:2
+msgid "_Properties..."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:1
+msgid "background color when interface is down."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:2
+msgid "background color when interface is up."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:3
+msgid "click command"
+msgstr ""
+
+#: planetload_applet.schemas.in.h:4
+msgid "command executed when you click."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:5
+msgid "command to change scheme."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:6
+msgid "command to obtain scheme list."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:7
+msgid "down background color."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:8
+msgid "down text color."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:9
+msgid "foreground color"
+msgstr ""
+
+#: planetload_applet.schemas.in.h:10
+msgid "foreground color when all packets come from somewhere."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:11
+msgid "foreground color when all packets go to somewhere."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:12
+msgid "foreground color."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:13
+msgid "graph size"
+msgstr ""
+
+#: planetload_applet.schemas.in.h:14
+msgid "graph width or height."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:15
+msgid "horizontal bar color"
+msgstr ""
+
+#: planetload_applet.schemas.in.h:16
+msgid "interface name"
+msgstr ""
+
+#: planetload_applet.schemas.in.h:17
+msgid "number of interfaces."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:18
+msgid "text color when interface is down."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:19
+msgid "text color when interface is up."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:20
+msgid "text color."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:21
+msgid "text font."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:22
+msgid "up background color."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:23
+msgid "update interval in milli seconds."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:24
+msgid "update interval."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:25
+msgid "whether scheme name is displayed below graphs."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:26
+msgid "whether scheme name is displayed."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:27
+msgid "whether you use Planet."
+msgstr ""

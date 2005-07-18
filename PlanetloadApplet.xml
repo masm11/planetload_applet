@@ -1,0 +1,11 @@
+<Root>
+  <popups>
+    <popup name="button3">
+      <placeholder name="Schemes List"/>
+      <menuitem name="Properties Item" verb="PlanetloadAppletProperties" _label="_Properties..."
+		pixtype="stock" pixname="gtk-properties"/>
+      <menuitem name="About Item" verb="PlanetloadAppletAbout" _label="_About..."
+		pixtype="stock" pixname="gnome-stock-about"/>
+    </popup>
+  </popups>
+</Root>

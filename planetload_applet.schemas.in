@@ -1,0 +1,175 @@
+<gconfschemafile>
+<schemalist>
+
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/nifaces</key>
+	<owner>planetload-applet-2</owner>
+	<type>int</type>
+	<default>1</default>
+	<locale name="C">
+		<short>number of interfaces.</short>
+		<long>number of interfaces.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/font</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default>sans 8</default>
+	<locale name="C">
+		<short>text font.</short>
+		<long>text font.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/interval</key>
+	<owner>planetload-applet-2</owner>
+	<type>int</type>
+	<default>1000</default>
+	<locale name="C">
+		<short>update interval.</short>
+		<long>update interval in milli seconds.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/use_planet</key>
+	<owner>planetload-applet-2</owner>
+	<type>bool</type>
+	<default>true</default>
+	<locale name="C">
+		<short>whether you use Planet.</short>
+		<long>whether you use Planet.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/cmd_list</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default>/sbin/netscheme -ql</default>
+	<locale name="C">
+		<short>command to obtain scheme list.</short>
+		<long>command to obtain scheme list.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/cmd_chg</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default>/sbin/netscheme %s</default>
+	<locale name="C">
+		<short>command to change scheme.</short>
+		<long>command to change scheme.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/disp_scheme</key>
+	<owner>planetload-applet-2</owner>
+	<type>bool</type>
+	<default>true</default>
+	<locale name="C">
+		<short>whether scheme name is displayed.</short>
+		<long>whether scheme name is displayed below graphs.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.size</key>
+	<owner>planetload-applet-2</owner>
+	<type>int</type>
+	<default>40</default>
+	<locale name="C">
+		<short>graph size</short>
+		<long>graph width or height.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.name</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default>lo</default>
+	<locale name="C">
+		<short>interface name</short>
+		<long>interface name</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.color0</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default>ffff:0000:c3c3:0000</default>
+	<locale name="C">
+		<short>foreground color.</short>
+		<long>foreground color when all packets come from somewhere.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.color1</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default>ffff:0000:0000:0000</default>
+	<locale name="C">
+		<short>up background color.</short>
+		<long>background color when interface is up.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.color2</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default>ffff:dcdc:dada:d5d5</default>
+	<locale name="C">
+		<short>text color.</short>
+		<long>text color when interface is up.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.color3</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default>0000:0000:0000:0000</default>
+	<locale name="C">
+		<short>down background color.</short>
+		<long>background color when interface is down.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.color4</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default>9191:0000:ffff:ffff</default>
+	<locale name="C">
+		<short>horizontal bar color</short>
+		<long>horizontal bar color</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.color5</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default>ffff:6464:6363:6161</default>
+	<locale name="C">
+		<short>down text color.</short>
+		<long>text color when interface is down.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.color6</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default>ffff:bebe:0000:0000</default>
+	<locale name="C">
+		<short>foreground color</short>
+		<long>foreground color when all packets go to somewhere.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.cmd</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default></default>
+	<locale name="C">
+		<short>click command</short>
+		<long>command executed when you click.</long>
+	</locale>
+</schema>
+</schemalist>
+</gconfschemafile>

@@ -1,0 +1,26 @@
+<oaf_info>
+<oaf_server iid="OAFIID:PlanetloadApplet_Factory"
+		type="exe"
+		location="@LIBEXECDIR@/planetload_applet">
+	<oaf_attribute name="repo_ids" type="stringv">
+		<item value="IDL:Bonobo/GenericFactory:1.0"/>
+		<item value="IDL:Bonobo/Unknown:1.0"/>
+	</oaf_attribute>
+	<oaf_attribute name="name" type="string" value="Planetload Applet Factory"/>
+	<oaf_attribute name="description" type="string" value="Planetload applet factory"/>
+</oaf_server>
+
+<oaf_server iid="OAFIID:PlanetloadApplet"
+		type="factory"
+		location="OAFIID:PlanetloadApplet_Factory">
+	<oaf_attribute name="repo_ids" type="stringv">
+		<item value="IDL:GNOME/Vertigo/PanelAppletShell:1.0"/>
+		<item value="IDL:Bonobo/Control:1.0"/>
+		<item value="IDL:Bonobo/Unknown:1.0"/>
+	</oaf_attribute>
+	<oaf_attribute name="name" type="string" value="Planetload Applet"/>
+	<oaf_attribute name="description" type="string" _value="Network Traffic Monitor"/>
+	<oaf_attribute name="panel:category" type="string" _value="Internet"/>
+	<oaf_attribute name="panel:icon" type="string" value="gnome-applets.png"/>
+</oaf_server>
+</oaf_info>
