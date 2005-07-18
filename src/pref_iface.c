@@ -15,7 +15,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: pref_iface.c 21 2005-07-18 07:57:00Z masm $
+ * $Id: pref_iface.c 31 2005-07-18 09:19:17Z masm $
  */
 
 #include "../config.h"
@@ -38,7 +38,7 @@ struct prop_t {
     
     GtkWidget *dialog;
     GtkWidget *name;
-    GtkWidget *ppp;
+    GtkWidget *ppp_yes, *ppp_no;
     GtkWidget *lock_file;
     GtkWidget *cmd_up, *cmd_down;
     GtkWidget *width;
@@ -238,7 +238,7 @@ void prop_iface(GtkWidget *iface)
 	    vbox);
     gtk_container_set_border_width(GTK_CONTAINER(vbox), 5);
     
-    tbl = gtk_table_new(2, 6, FALSE);
+    tbl = gtk_table_new(3, 6, FALSE);
     gtk_box_pack_start(GTK_BOX(vbox), tbl, FALSE, FALSE, 0);
     
     
@@ -246,7 +246,7 @@ void prop_iface(GtkWidget *iface)
     gtk_table_attach_defaults(GTK_TABLE(tbl), lb, 0, 1, 0, 1);
     
     pp->name = gtk_entry_new();
-    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->name, 1, 2, 0, 1);
+    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->name, 1, 3, 0, 1);
     gtk_entry_set_text(GTK_ENTRY(pp->name), nsa_iface_get_name(NSA_IFACE(pp->iface)));
     g_signal_connect(G_OBJECT(pp->name), "changed",
 	    G_CALLBACK(iface_changed_cb), pp);
@@ -254,19 +254,26 @@ void prop_iface(GtkWidget *iface)
     lb = gtk_label_new(_("PPP:"));
     gtk_table_attach_defaults(GTK_TABLE(tbl), lb, 0, 1, 1, 2);
     
-    pp->ppp = gtk_check_button_new();
-    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->ppp, 1, 2, 1, 2);
+    pp->ppp_yes = gtk_radio_button_new_with_label(NULL, "YES");
+    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->ppp_yes, 1, 2, 1, 2);
     
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(pp->ppp),
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(pp->ppp_yes),
 	    nsa_iface_get_is_ppp(NSA_IFACE(pp->iface)));
-    g_signal_connect(G_OBJECT(pp->ppp), "toggled",
+    g_signal_connect(G_OBJECT(pp->ppp_yes), "toggled",
 	    G_CALLBACK(ppp_changed_cb), pp);
+    
+    pp->ppp_no = gtk_radio_button_new_with_label_from_widget(pp->ppp_yes, "NO");
+    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->ppp_no, 2, 3, 1, 2);
+    
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(pp->ppp_no),
+	    !nsa_iface_get_is_ppp(NSA_IFACE(pp->iface)));
+    /* yes だけ見てればいいので、no のボタンは signal connect しない。*/
     
     lb = gtk_label_new(_("PPP Lock File:"));
     gtk_table_attach_defaults(GTK_TABLE(tbl), lb, 0, 1, 2, 3);
     
     pp->lock_file = gtk_entry_new();
-    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->lock_file, 1, 2, 2, 3);
+    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->lock_file, 1, 3, 2, 3);
     gtk_entry_set_text(GTK_ENTRY(pp->lock_file), nsa_iface_get_lock_file(NSA_IFACE(pp->iface)));
     g_signal_connect(G_OBJECT(pp->lock_file), "changed",
 	    G_CALLBACK(lock_file_changed_cb), pp);
@@ -275,7 +282,7 @@ void prop_iface(GtkWidget *iface)
     gtk_table_attach_defaults(GTK_TABLE(tbl), lb, 0, 1, 3, 4);
     
     pp->width = gtk_spin_button_new_with_range(1, 10000, 1);
-    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->width, 1, 2, 3, 4);
+    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->width, 1, 3, 3, 4);
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(pp->width), nsa_iface_get_size(NSA_IFACE(pp->iface)));
     g_signal_connect(G_OBJECT(pp->width), "value-changed",
 	    G_CALLBACK(size_changed_cb), pp);
@@ -284,7 +291,7 @@ void prop_iface(GtkWidget *iface)
     gtk_table_attach_defaults(GTK_TABLE(tbl), lb, 0, 1, 4, 5);
     
     pp->cmd_up = gtk_entry_new();
-    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->cmd_up, 1, 2, 4, 5);
+    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->cmd_up, 1, 3, 4, 5);
     gtk_entry_set_text(GTK_ENTRY(pp->cmd_up), nsa_iface_get_cmd_up(NSA_IFACE(pp->iface)));
     g_signal_connect(G_OBJECT(pp->cmd_up), "changed",
 	    G_CALLBACK(command_up_changed_cb), pp);
@@ -293,7 +300,7 @@ void prop_iface(GtkWidget *iface)
     gtk_table_attach_defaults(GTK_TABLE(tbl), lb, 0, 1, 5, 6);
     
     pp->cmd_down = gtk_entry_new();
-    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->cmd_down, 1, 2, 5, 6);
+    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->cmd_down, 1, 3, 5, 6);
     gtk_entry_set_text(GTK_ENTRY(pp->cmd_down), nsa_iface_get_cmd_down(NSA_IFACE(pp->iface)));
     g_signal_connect(G_OBJECT(pp->cmd_down), "changed",
 	    G_CALLBACK(command_down_changed_cb), pp);
