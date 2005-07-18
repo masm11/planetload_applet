@@ -1,10 +1,11 @@
-# $Id: Makefile.am 21 2005-07-18 07:57:00Z masm $
+# $Id: Makefile.am 36 2005-07-18 09:58:58Z masm $
 
 libexec_PROGRAMS = planetload_applet
 # bin_PROGRAMS = test
 
 planetload_applet_SOURCES =	\
     planetload_applet.c		\
+    planetload_applet.h		\
     nsaiface.c			\
     nsaiface.h			\
     nsapainter.c		\
@@ -16,8 +17,11 @@ planetload_applet_SOURCES =	\
     nsasplitpainter.c		\
     nsasplitpainter.h		\
     preferences.c		\
+    preferences.h		\
     pref_iface.c		\
+    pref_iface.h		\
     debug.c			\
+    debug.h			\
     appconf.c			\
     appconf.h			\
     app.h			\
