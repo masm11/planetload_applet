@@ -6,151 +6,168 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: planetload_applet 1.0\n"
-"POT-Creation-Date: 2004-05-21 23:20+0900\n"
-"PO-Revision-Date: 2004-05-21 23:21+0900\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-07-18 17:29+0900\n"
+"PO-Revision-Date: 2005-07-18 17:37+0900\n"
 "Last-Translator: Yuuki Harano <masm@flowernet.gr.jp>\n"
 "Language-Team: Japanese <masm@flowernet.gr.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=EUC-JP\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/nsapainter.c:95
+#: src/nsapainter.c:97
 msgid "NsaIface Pointer"
 msgstr "NsaIfaceのポインタ"
 
-#: src/nsapainter.c:96
+#: src/nsapainter.c:98
 msgid "The pointer to the nsa_iface"
 msgstr "nsa_ifaceのポインタ"
 
-#: src/preferences.c:291 src/preferences.c:317
+#: src/preferences.c:293 src/preferences.c:319
 msgid "Interfaces"
 msgstr "インタフェース"
 
-#: src/preferences.c:330
+#: src/preferences.c:332
 msgid "Add"
 msgstr "追加"
 
-#: src/preferences.c:335
+#: src/preferences.c:337
 msgid "Copy"
 msgstr "複製"
 
-#: src/preferences.c:340
+#: src/preferences.c:342
 msgid "Remove"
 msgstr "削除"
 
-#: src/preferences.c:350
+#: src/preferences.c:352
 msgid "Edit..."
 msgstr "編集..."
 
-#: src/preferences.c:358
+#: src/preferences.c:360
 msgid "Up"
 msgstr "上へ"
 
-#: src/preferences.c:363
+#: src/preferences.c:365
 msgid "Down"
 msgstr "下へ"
 
-#: src/preferences.c:437
+#: src/preferences.c:439
 msgid "Options"
 msgstr "オプション"
 
-#: src/preferences.c:443
+#: src/preferences.c:445
 msgid "Font:"
 msgstr "フォント:"
 
-#: src/preferences.c:453
+#: src/preferences.c:455
 msgid "Update Interval:"
 msgstr "更新間隔:"
 
-#: src/preferences.c:462
+#: src/preferences.c:464
 msgid "Painter:"
 msgstr "描画方式:"
 
-#: src/preferences.c:466
+#: src/preferences.c:468
 msgid "Fine"
 msgstr "綺麗"
 
-#: src/preferences.c:472
+#: src/preferences.c:474
 msgid "Light"
 msgstr "軽量"
 
-#: src/preferences.c:478
+#: src/preferences.c:480
 msgid "Split"
 msgstr "分離"
 
-#: src/preferences.c:581
+#: src/preferences.c:583
 msgid "Planet"
 msgstr "Planet"
 
-#: src/preferences.c:594
+#: src/preferences.c:596
 msgid "Command to Get Scheme List:"
 msgstr "スキーム名のリストを得るコマンド:"
 
-#: src/preferences.c:604
+#: src/preferences.c:606
 msgid "Command to Change Scheme:"
 msgstr "スキームを切替えるコマンド:"
 
-#: src/preferences.c:614
+#: src/preferences.c:616
 msgid "Scheme Label:"
 msgstr "スキーム名の表示:"
 
-#: src/preferences.c:651
+#: src/preferences.c:653
 msgid "Planetload Applet Settings"
 msgstr "Planetload Applet の設定"
 
-#: src/pref_iface.c:104
+#: src/pref_iface.c:132
 msgid "Text:"
 msgstr "テキスト:"
 
-#: src/pref_iface.c:105 src/pref_iface.c:120
+#: src/pref_iface.c:133 src/pref_iface.c:150
 msgid "UP:"
 msgstr "UP:"
 
-#: src/pref_iface.c:107 src/pref_iface.c:122
+#: src/pref_iface.c:135 src/pref_iface.c:152
+msgid "DIAL:"
+msgstr "ダイヤル中:"
+
+#: src/pref_iface.c:137 src/pref_iface.c:154
 msgid "DOWN:"
 msgstr "DOWN:"
 
-#: src/pref_iface.c:110
+#: src/pref_iface.c:140
 msgid "Bar:"
 msgstr "横線:"
 
-#: src/pref_iface.c:113
+#: src/pref_iface.c:143
 msgid "Foreground:"
 msgstr "前景:"
 
-#: src/pref_iface.c:114
+#: src/pref_iface.c:144
 msgid "OUT:"
 msgstr "OUT:"
 
-#: src/pref_iface.c:116
+#: src/pref_iface.c:146
 msgid "IN:"
 msgstr "IN:"
 
-#: src/pref_iface.c:119
+#: src/pref_iface.c:149
 msgid "Background:"
 msgstr "背景:"
 
-#: src/pref_iface.c:129
+#: src/pref_iface.c:161
 msgid "Colors"
 msgstr "色"
 
-#: src/pref_iface.c:199
+#: src/pref_iface.c:231
 msgid "Interface Settings"
 msgstr "インタフェースの設定"
 
-#: src/pref_iface.c:213
+#: src/pref_iface.c:245
 msgid "Network Interface:"
 msgstr "インタフェース名:"
 
-#: src/pref_iface.c:222
+#: src/pref_iface.c:254
+msgid "PPP:"
+msgstr "PPP:"
+
+#: src/pref_iface.c:265
+msgid "PPP Lock File:"
+msgstr "PPPのロックファイル:"
+
+#: src/pref_iface.c:274
 msgid "Size:"
 msgstr "サイズ:"
 
-#: src/pref_iface.c:231
-msgid "Click Command:"
-msgstr "クリック時のコマンド:"
+#: src/pref_iface.c:283
+msgid "Click Command When Up:"
+msgstr "up時にクリックした時のコマンド:"
 
-#: src/about.c:60
+#: src/pref_iface.c:292
+msgid "Click Command When Down:"
+msgstr "down時にクリックした時のコマンド:"
+
+#: src/about.c:62
 msgid ""
 "Released under the GNU General Public License.\n"
 "\n"
@@ -177,109 +194,154 @@ msgid "_Properties..."
 msgstr "設定(_P)..."
 
 #: planetload_applet.schemas.in.h:1
+msgid "background color when interface has no address."
+msgstr "アドレスがない時の背景色"
+
+#: planetload_applet.schemas.in.h:2
 msgid "background color when interface is down."
 msgstr "インタフェースが落ちている時の背景色"
 
-#: planetload_applet.schemas.in.h:2
+#: planetload_applet.schemas.in.h:3
 msgid "background color when interface is up."
 msgstr "インタフェースが上がっている時の背景色"
 
-#: planetload_applet.schemas.in.h:3
-msgid "click command"
-msgstr "クリック時のコマンド:"
-
 #: planetload_applet.schemas.in.h:4
-msgid "command executed when you click."
-msgstr "クリックした時に実行するコマンド"
+msgid "click command when down"
+msgstr "down時にクリックした時のコマンド:"
 
 #: planetload_applet.schemas.in.h:5
+msgid "click command when up"
+msgstr "up時にクリックした時のコマンド:"
+
+#: planetload_applet.schemas.in.h:6
+msgid "command executed when you click while interface is down."
+msgstr "down時にクリックした時に実行するコマンド"
+
+#: planetload_applet.schemas.in.h:7
+#, fuzzy
+msgid "command executed when you click while interface is up."
+msgstr "up時にクリックした時に実行するコマンド"
+
+#: planetload_applet.schemas.in.h:8
 msgid "command to change scheme."
 msgstr "スキームを切替えるコマンド:"
 
-#: planetload_applet.schemas.in.h:6
+#: planetload_applet.schemas.in.h:9
 msgid "command to obtain scheme list."
 msgstr "スキーム名のリストを得るコマンド"
 
-#: planetload_applet.schemas.in.h:7
+#: planetload_applet.schemas.in.h:10
 msgid "down background color."
-msgstr "ダウン時背景色"
+msgstr "down時背景色"
 
-#: planetload_applet.schemas.in.h:8
+#: planetload_applet.schemas.in.h:11
 msgid "down text color."
-msgstr "ダウン時テキスト色"
+msgstr "down時テキスト色"
 
-#: planetload_applet.schemas.in.h:9
+#: planetload_applet.schemas.in.h:12
 msgid "foreground color"
 msgstr "前景色"
 
-#: planetload_applet.schemas.in.h:10
+#: planetload_applet.schemas.in.h:13
 msgid "foreground color when all packets come from somewhere."
 msgstr "全パケットが外から来た場合の前景色"
 
-#: planetload_applet.schemas.in.h:11
+#: planetload_applet.schemas.in.h:14
 msgid "foreground color when all packets go to somewhere."
 msgstr "全パケットが外へ出ていった場合の前景色"
 
-#: planetload_applet.schemas.in.h:12
+#: planetload_applet.schemas.in.h:15
 msgid "foreground color."
 msgstr "前景色"
 
-#: planetload_applet.schemas.in.h:13
+#: planetload_applet.schemas.in.h:16
 msgid "graph size"
 msgstr "グラフの大きさ"
 
-#: planetload_applet.schemas.in.h:14
+#: planetload_applet.schemas.in.h:17
 msgid "graph width or height."
 msgstr "グラフの幅または高さ"
 
-#: planetload_applet.schemas.in.h:15
+#: planetload_applet.schemas.in.h:18
 msgid "horizontal bar color"
 msgstr "横線の色"
 
-#: planetload_applet.schemas.in.h:16
+#: planetload_applet.schemas.in.h:19
 msgid "interface name"
 msgstr "インタフェース"
 
-#: planetload_applet.schemas.in.h:17
+#: planetload_applet.schemas.in.h:20
+msgid "name of ppp lock file"
+msgstr "PPPロックファイルの名前"
+
+#: planetload_applet.schemas.in.h:21
+msgid "no address background color"
+msgstr "アドレスがない時の背景色"
+
+#: planetload_applet.schemas.in.h:22
+msgid "no address text color"
+msgstr "アドレスがない時のテキスト色"
+
+#: planetload_applet.schemas.in.h:23
 msgid "number of interfaces."
 msgstr "インタフェース数"
 
-#: planetload_applet.schemas.in.h:18
+#: planetload_applet.schemas.in.h:24
+msgid "ppp lock file"
+msgstr "PPPロックファイル"
+
+#: planetload_applet.schemas.in.h:25
+msgid "text color when interface has no address."
+msgstr "インタフェースにアドレスがない場合のテキストの色"
+
+#: planetload_applet.schemas.in.h:26
 msgid "text color when interface is down."
 msgstr "インタフェースが落ちている場合のテキストの色"
 
-#: planetload_applet.schemas.in.h:19
+#: planetload_applet.schemas.in.h:27
 msgid "text color when interface is up."
 msgstr "インタフェースが上がっている場合のテキストの色"
 
-#: planetload_applet.schemas.in.h:20
+#: planetload_applet.schemas.in.h:28
 msgid "text color."
 msgstr "テキストの色"
 
-#: planetload_applet.schemas.in.h:21
+#: planetload_applet.schemas.in.h:29
 msgid "text font."
 msgstr "テキストのフォント"
 
-#: planetload_applet.schemas.in.h:22
+#: planetload_applet.schemas.in.h:30
 msgid "up background color."
 msgstr "UP時背景色"
 
-#: planetload_applet.schemas.in.h:23
+#: planetload_applet.schemas.in.h:31
 msgid "update interval in milli seconds."
 msgstr "ミリ秒単位の更新間隔"
 
-#: planetload_applet.schemas.in.h:24
+#: planetload_applet.schemas.in.h:32
 msgid "update interval."
 msgstr "更新間隔"
 
-#: planetload_applet.schemas.in.h:25
+#: planetload_applet.schemas.in.h:33
+#, fuzzy
+msgid "whether interface is ppp."
+msgstr "インタフェースがPPPかどうか"
+
+#: planetload_applet.schemas.in.h:34
+msgid "whether ppp"
+msgstr "PPPかどうか"
+
+#: planetload_applet.schemas.in.h:35
 msgid "whether scheme name is displayed below graphs."
 msgstr "グラフの下にスキーム名を表示するかどうか"
 
-#: planetload_applet.schemas.in.h:26
+#: planetload_applet.schemas.in.h:36
 msgid "whether scheme name is displayed."
 msgstr "スキーム名を表示するかどうか"
 
-#: planetload_applet.schemas.in.h:27
+#: planetload_applet.schemas.in.h:37
 msgid "whether you use Planet."
 msgstr "Planet を使うかどうか"
+
+#~ msgid "click command"
+#~ msgstr "クリック時のコマンド:"

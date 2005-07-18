@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-18 17:13+0900\n"
+"POT-Creation-Date: 2005-07-18 17:29+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -192,109 +192,149 @@ msgid "_Properties..."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:1
-msgid "background color when interface is down."
+msgid "background color when interface has no address."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:2
-msgid "background color when interface is up."
+msgid "background color when interface is down."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:3
-msgid "click command"
+msgid "background color when interface is up."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:4
-msgid "command executed when you click."
+msgid "click command when down"
 msgstr ""
 
 #: planetload_applet.schemas.in.h:5
-msgid "command to change scheme."
+msgid "click command when up"
 msgstr ""
 
 #: planetload_applet.schemas.in.h:6
-msgid "command to obtain scheme list."
+msgid "command executed when you click while interface is down."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:7
-msgid "down background color."
+msgid "command executed when you click while interface is up."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:8
-msgid "down text color."
+msgid "command to change scheme."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:9
-msgid "foreground color"
+msgid "command to obtain scheme list."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:10
-msgid "foreground color when all packets come from somewhere."
+msgid "down background color."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:11
-msgid "foreground color when all packets go to somewhere."
+msgid "down text color."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:12
-msgid "foreground color."
+msgid "foreground color"
 msgstr ""
 
 #: planetload_applet.schemas.in.h:13
-msgid "graph size"
+msgid "foreground color when all packets come from somewhere."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:14
-msgid "graph width or height."
+msgid "foreground color when all packets go to somewhere."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:15
-msgid "horizontal bar color"
+msgid "foreground color."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:16
-msgid "interface name"
+msgid "graph size"
 msgstr ""
 
 #: planetload_applet.schemas.in.h:17
-msgid "number of interfaces."
+msgid "graph width or height."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:18
-msgid "text color when interface is down."
+msgid "horizontal bar color"
 msgstr ""
 
 #: planetload_applet.schemas.in.h:19
-msgid "text color when interface is up."
+msgid "interface name"
 msgstr ""
 
 #: planetload_applet.schemas.in.h:20
-msgid "text color."
+msgid "name of ppp lock file"
 msgstr ""
 
 #: planetload_applet.schemas.in.h:21
-msgid "text font."
+msgid "no address background color"
 msgstr ""
 
 #: planetload_applet.schemas.in.h:22
-msgid "up background color."
+msgid "no address text color"
 msgstr ""
 
 #: planetload_applet.schemas.in.h:23
-msgid "update interval in milli seconds."
+msgid "number of interfaces."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:24
-msgid "update interval."
+msgid "ppp lock file"
 msgstr ""
 
 #: planetload_applet.schemas.in.h:25
-msgid "whether scheme name is displayed below graphs."
+msgid "text color when interface has no address."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:26
-msgid "whether scheme name is displayed."
+msgid "text color when interface is down."
 msgstr ""
 
 #: planetload_applet.schemas.in.h:27
+msgid "text color when interface is up."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:28
+msgid "text color."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:29
+msgid "text font."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:30
+msgid "up background color."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:31
+msgid "update interval in milli seconds."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:32
+msgid "update interval."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:33
+msgid "whether interface is ppp."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:34
+msgid "whether ppp"
+msgstr ""
+
+#: planetload_applet.schemas.in.h:35
+msgid "whether scheme name is displayed below graphs."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:36
+msgid "whether scheme name is displayed."
+msgstr ""
+
+#: planetload_applet.schemas.in.h:37
 msgid "whether you use Planet."
 msgstr ""
