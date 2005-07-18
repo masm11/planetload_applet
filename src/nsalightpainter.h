@@ -15,11 +15,13 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: nsalightpainter.h 21 2005-07-18 07:57:00Z masm $
+ * $Id: nsalightpainter.h 24 2005-07-18 08:12:27Z masm $
  */
 
 #ifndef NSA_LIGHTPAINTER_H
 #define NSA_LIGHTPAINTER_H
+
+#include "../config.h"
 
 #include <gdk/gdk.h>
 #include <sys/types.h>

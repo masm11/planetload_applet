@@ -15,11 +15,13 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: appconf.h 21 2005-07-18 07:57:00Z masm $
+ * $Id: appconf.h 24 2005-07-18 08:12:27Z masm $
  */
 
 #ifndef APPCONF_H__INCLUDED
 #define APPCONF_H__INCLUDED
+
+#include "../config.h"
 
 gboolean appconf_load(struct app_t *app);
 void appconf_save(struct app_t *app);

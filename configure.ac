@@ -1,6 +1,6 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
-# $Id: configure.ac 23 2005-07-18 08:02:27Z masm $
+# $Id: configure.ac 24 2005-07-18 08:12:27Z masm $
 
 AC_PREREQ(2.57)
 
@@ -67,7 +67,7 @@ gnomelocaledir='${prefix}/${DATADIRNAME}/locale'
 AC_SUBST(gnomelocaledir)
 
 #
-AC_CONFIG_FILES([Makefile m4/Makefile src/Makefile po/Makefile.in
+AC_CONFIG_FILES([Makefile src/Makefile po/Makefile.in
                  intltool-extract intltool-merge intltool-update])
 
 AC_OUTPUT

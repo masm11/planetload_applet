@@ -1,6 +1,6 @@
-# $Id: Makefile.am 21 2005-07-18 07:57:00Z masm $
+# $Id: Makefile.am 24 2005-07-18 08:12:27Z masm $
 
-SUBDIRS = m4 src po
+SUBDIRS = src po
 
 EXTRA_DIST = PlanetloadApplet.server.in.in PlanetloadApplet.xml planetload_applet.schemas.in \
              intltool-extract.in intltool-merge.in intltool-update.in \
@@ -36,7 +36,7 @@ CLEANFILES = $(server_DATA) $(server_in_files) $(schema_DATA)
 distcheck-hook:
 	$(srcdir)/check.sh $(distdir) $(top_srcdir)
 
-ACLOCAL_AMFLAGS = -I m4 -I /usr/local/share/aclocal
+ACLOCAL_AMFLAGS = -I /usr/local/share/aclocal
 DISTCHECK_CONFIGURE_FLAGS = --disable-schemas-install
 
 
