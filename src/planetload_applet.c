@@ -15,7 +15,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: planetload_applet.c 21 2005-07-18 07:57:00Z masm $
+ * $Id: planetload_applet.c 34 2005-07-18 09:57:54Z masm $
  */
 
 #include "../config.h"
@@ -36,11 +36,13 @@
 #include "about.h"
 #include "app.h"
 #include "appconf.h"
+#include "debug.h"
+#include "preferences.h"
+#include "planetload_applet.h"
+
 #include "i18n-support.h"
 
 #define SCHEME_FILE	"/var/lib/net/scheme"
-
-void preferences(BonoboUIComponent *uic, gpointer data, const gchar *verbname);
 
 /**************** scheme ****/
 

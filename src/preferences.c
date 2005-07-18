@@ -15,7 +15,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: preferences.c 21 2005-07-18 07:57:00Z masm $
+ * $Id: preferences.c 34 2005-07-18 09:57:54Z masm $
  */
 
 #include "../config.h"
@@ -33,6 +33,10 @@
 
 #include "app.h"
 #include "appconf.h"
+#include "debug.h"
+#include "planetload_applet.h"
+#include "pref_iface.h"
+#include "preferences.h"
 #include "i18n-support.h"
 
 enum {
@@ -93,7 +97,6 @@ static void append_iface(GtkWidget *w, gpointer data)
 
 static void remove_iface_signal_handler(GtkWidget *w, gpointer data)
 {
-    struct dialog_t *dp = data;
     g_signal_handlers_disconnect_by_func(w, name_changed_cb, data);
 }
 
@@ -189,6 +192,7 @@ static void down_cb(GtkWidget *w, gpointer data)
     move(dp, 1);
 }
 
+#if 0
 static void add_cb(GtkWidget *w, gpointer data)
 {
     struct dialog_t *dp = data;
@@ -204,6 +208,7 @@ static void add_cb(GtkWidget *w, gpointer data)
     
     update_buttons_sensitive(dp);
 }
+#endif
 
 static void copy_cb(GtkWidget *w, gpointer data)
 {

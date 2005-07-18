@@ -15,13 +15,14 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: nsalightpainter.c 21 2005-07-18 07:57:00Z masm $
+ * $Id: nsalightpainter.c 34 2005-07-18 09:57:54Z masm $
  */
 
 #include "../config.h"
 
 #include <string.h>
 #include <math.h>
+#include "debug.h"
 #include "nsalightpainter.h"
 
 #include "i18n-support.h"
@@ -137,7 +138,6 @@ static GObject *nsa_light_painter_constructor(
 static void nsa_light_painter_destroy(GtkObject *object)
 {
     NsaLightPainter *light_painter = NSA_LIGHT_PAINTER(object);
-    NsaPainter *painter = NSA_PAINTER(light_painter);
     int i;
     
     debug_log("nsa_light_painter_destroy:\n");
@@ -164,8 +164,6 @@ static void nsa_light_painter_destroy(GtkObject *object)
 
 static void nsa_light_painter_finalize(GObject *object)
 {
-    NsaLightPainter *light_painter = NSA_LIGHT_PAINTER(object);
-    
     debug_log("nsa_fine_painter_finalize:\n");
     
     (*G_OBJECT_CLASS(parent_class)->finalize)(object);

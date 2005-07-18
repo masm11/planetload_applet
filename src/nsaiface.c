@@ -15,7 +15,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: nsaiface.c 21 2005-07-18 07:57:00Z masm $
+ * $Id: nsaiface.c 34 2005-07-18 09:57:54Z masm $
  */
 
 #include "../config.h"
@@ -29,6 +29,7 @@
 #include "nsafinepainter.h"
 #include "nsalightpainter.h"
 #include "nsasplitpainter.h"
+#include "debug.h"
 #include "nsaiface.h"
 
 #undef DEBUG

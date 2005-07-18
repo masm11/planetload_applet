@@ -15,13 +15,14 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: nsapainter.c 21 2005-07-18 07:57:00Z masm $
+ * $Id: nsapainter.c 34 2005-07-18 09:57:54Z masm $
  */
 
 #include "../config.h"
 
 #include <string.h>
 #include <math.h>
+#include "debug.h"
 #include "nsapainter.h"
 
 #include "i18n-support.h"
@@ -112,7 +113,6 @@ static GObject *nsa_painter_constructor(
 {
     GObject *object;
     NsaPainter *painter;
-    int i;
     
     debug_log("painter_constructor:\n");
     object = (*G_OBJECT_CLASS(parent_class)->constructor)(
@@ -180,8 +180,6 @@ static void nsa_painter_destroy(GtkObject *object)
 
 static void nsa_painter_finalize(GObject *object)
 {
-    NsaPainter *painter = NSA_PAINTER(object);
-    
     debug_log("nsa_painter_finalize:\n");
     
     (*G_OBJECT_CLASS(parent_class)->finalize)(object);

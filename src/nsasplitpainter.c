@@ -15,7 +15,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: nsasplitpainter.c 21 2005-07-18 07:57:00Z masm $
+ * $Id: nsasplitpainter.c 34 2005-07-18 09:57:54Z masm $
  */
 
 #include "../config.h"
@@ -23,6 +23,7 @@
 #include <string.h>
 #include <math.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include "debug.h"
 #include "nsasplitpainter.h"
 
 #include "i18n-support.h"
@@ -149,10 +150,6 @@ static GObject *nsa_split_painter_constructor(
 
 static void nsa_split_painter_destroy(GtkObject *object)
 {
-    NsaSplitPainter *split_painter = NSA_SPLIT_PAINTER(object);
-    NsaPainter *painter = NSA_PAINTER(split_painter);
-    NsaIface *iface = painter->iface;
-    
     debug_log("nsa_split_painter_destroy:\n");
     
     (*GTK_OBJECT_CLASS(parent_class)->destroy)(object);
@@ -204,10 +201,6 @@ static void nsa_split_painter_paint(NsaPainter *painter, GdkRectangle *area)
 
 static void nsa_split_painter_paint_graph(NsaSplitPainter *split_painter, GdkRectangle *area)
 {
-    NsaPainter *painter = NSA_PAINTER(split_painter);
-    NsaIface *iface = painter->iface;
-//    debug_log("paint_graph: area: %d,%d,%d,%d.\n", area->x, area->y, area->width, area->height);
-    
     pixdata_draw(&split_painter->layers.bg, split_painter);
     pixdata_draw(&split_painter->layers.fg, split_painter);
     pixdata_draw(&split_painter->layers.hbar, split_painter);
@@ -327,8 +320,6 @@ static void draw_pulse(NsaSplitPainter *split_painter, int x, struct val_t *vp)
 
 static int bps_to_meter(NsaSplitPainter *split_painter, bps_t bps, int height, int mag)
 {
-    NsaPainter *painter = NSA_PAINTER(split_painter);
-    NsaIface *iface = painter->iface;
     int h = 0;
     
     if (bps > 0) {

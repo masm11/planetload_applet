@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planetload_applet 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-18 17:29+0900\n"
+"POT-Creation-Date: 2005-07-18 18:52+0900\n"
 "PO-Revision-Date: 2005-07-18 18:16+0900\n"
 "Last-Translator: Yuuki Harano <masm@flowernet.gr.jp>\n"
 "Language-Team: Japanese <masm@flowernet.gr.jp>\n"
@@ -15,155 +15,156 @@ msgstr ""
 "Content-Type: text/plain; charset=EUC-JP\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/nsapainter.c:97
+#: src/nsapainter.c:98
 msgid "NsaIface Pointer"
 msgstr "NsaIfaceのポインタ"
 
-#: src/nsapainter.c:98
+#: src/nsapainter.c:99
 msgid "The pointer to the nsa_iface"
 msgstr "nsa_ifaceのポインタ"
 
-#: src/preferences.c:293 src/preferences.c:319
+#: src/preferences.c:298 src/preferences.c:324
 msgid "Interfaces"
 msgstr "インタフェース"
 
-#: src/preferences.c:332
+#: src/preferences.c:337
 msgid "Add"
 msgstr "追加"
 
-#: src/preferences.c:337
+#: src/preferences.c:342
 msgid "Copy"
 msgstr "複製"
 
-#: src/preferences.c:342
+#: src/preferences.c:347
 msgid "Remove"
 msgstr "削除"
 
-#: src/preferences.c:352
+#: src/preferences.c:357
 msgid "Edit..."
 msgstr "編集..."
 
-#: src/preferences.c:360
+#: src/preferences.c:365
 msgid "Up"
 msgstr "上へ"
 
-#: src/preferences.c:365
+#: src/preferences.c:370
 msgid "Down"
 msgstr "下へ"
 
-#: src/preferences.c:439
+#: src/preferences.c:444
 msgid "Options"
 msgstr "オプション"
 
-#: src/preferences.c:445
+#: src/preferences.c:450
 msgid "Font:"
 msgstr "フォント:"
 
-#: src/preferences.c:455
+#: src/preferences.c:460
 msgid "Update Interval:"
 msgstr "更新間隔:"
 
-#: src/preferences.c:464
+#: src/preferences.c:469
 msgid "Painter:"
 msgstr "描画方式:"
 
-#: src/preferences.c:468
+#: src/preferences.c:473
 msgid "Fine"
 msgstr "綺麗"
 
-#: src/preferences.c:474
+#: src/preferences.c:479
 msgid "Light"
 msgstr "軽量"
 
-#: src/preferences.c:480
+#: src/preferences.c:485
 msgid "Split"
 msgstr "分離"
 
-#: src/preferences.c:583
+#: src/preferences.c:588
 msgid "Planet"
 msgstr "Planet"
 
-#: src/preferences.c:596
+#: src/preferences.c:601
 msgid "Command to Get Scheme List:"
 msgstr "スキーム名のリストを得るコマンド:"
 
-#: src/preferences.c:606
+#: src/preferences.c:611
 msgid "Command to Change Scheme:"
 msgstr "スキームを切替えるコマンド:"
 
-#: src/preferences.c:616
+#: src/preferences.c:621
 msgid "Scheme Label:"
 msgstr "スキーム名の表示:"
 
-#: src/preferences.c:653
+#: src/preferences.c:658
 msgid "Planetload Applet Settings"
 msgstr "Planetload Applet の設定"
 
-#: src/pref_iface.c:132
+#: src/pref_iface.c:134
 msgid "Text:"
 msgstr "テキスト:"
 
-#: src/pref_iface.c:133 src/pref_iface.c:150
+#: src/pref_iface.c:135 src/pref_iface.c:152
 msgid "UP:"
 msgstr "UP:"
 
-#: src/pref_iface.c:135 src/pref_iface.c:152
+#: src/pref_iface.c:137 src/pref_iface.c:154
 msgid "DIAL:"
 msgstr "ダイヤル中:"
 
-#: src/pref_iface.c:137 src/pref_iface.c:154
+#: src/pref_iface.c:139 src/pref_iface.c:156
 msgid "DOWN:"
 msgstr "DOWN:"
 
-#: src/pref_iface.c:140
+#: src/pref_iface.c:142
 msgid "Bar:"
 msgstr "横線:"
 
-#: src/pref_iface.c:143
+#: src/pref_iface.c:145
 msgid "Foreground:"
 msgstr "前景:"
 
-#: src/pref_iface.c:144
+#: src/pref_iface.c:146
 msgid "OUT:"
 msgstr "OUT:"
 
-#: src/pref_iface.c:146
+#: src/pref_iface.c:148
 msgid "IN:"
 msgstr "IN:"
 
-#: src/pref_iface.c:149
+#: src/pref_iface.c:151
 msgid "Background:"
 msgstr "背景:"
 
-#: src/pref_iface.c:161
+#: src/pref_iface.c:163
 msgid "Colors"
 msgstr "色"
 
-#: src/pref_iface.c:231
+#: src/pref_iface.c:233
 msgid "Interface Settings"
 msgstr "インタフェースの設定"
 
-#: src/pref_iface.c:245
+#: src/pref_iface.c:247
 msgid "Network Interface:"
 msgstr "インタフェース名:"
 
-#: src/pref_iface.c:254
+#: src/pref_iface.c:256
 msgid "PPP:"
 msgstr "PPP:"
 
-#: src/pref_iface.c:265
+#. I use only "YES" button, so I ignore "NO" button signal.
+#: src/pref_iface.c:274
 msgid "PPP Lock File:"
 msgstr "PPPのロックファイル:"
 
-#: src/pref_iface.c:274
+#: src/pref_iface.c:283
 msgid "Size:"
 msgstr "サイズ:"
 
-#: src/pref_iface.c:283
+#: src/pref_iface.c:292
 msgid "Click Command When Up:"
 msgstr "UP時にクリックした時のコマンド:"
 
-#: src/pref_iface.c:292
+#: src/pref_iface.c:301
 msgid "Click Command When Down:"
 msgstr "DOWN時にクリックした時のコマンド:"
 

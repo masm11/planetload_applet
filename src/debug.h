@@ -15,52 +15,15 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: debug.c 34 2005-07-18 09:57:54Z masm $
+ * $Id: debug.h 34 2005-07-18 09:57:54Z masm $
  */
+
+#ifndef DEBUG_H__INCLUDED
+#define DEBUG_H__INCLUDED
 
 #include "../config.h"
 
-#include <stdio.h>
-#include <stdarg.h>
-#include "i18n-support.h"
-#include "debug.h"
+void debug_init(void);
+void debug_log(char *fmt, ...);
 
-#ifdef DEBUG
-
-#include <signal.h>
-
-static FILE *fp = NULL;
-
-static void sig(int s)
-{
-    if (fp != NULL)
-	fflush(fp);
-//  raise(SIGSEGV);
-}
-
-void debug_init(void)
-{
-    if (fp == NULL)
-	fp = fopen("/home/masm/planetload_applet.log", "at");
-//  signal(SIGSEGV, sig);
-}
-
-void debug_log(char *fmt, ...)
-{
-    va_list ap;
-    if (fp != NULL) {
-	va_start(ap, fmt);
-	vfprintf(fp, fmt, ap);
-	va_end(ap);
-	fflush(fp);
-    }
-}
-
-#else
-
-void debug_init(void) {}
-void debug_log(char *fmt, ...) {(void) fmt;}
-
-#endif
-
-/*EOF*/
+#endif	/* ifndef DEBUG_H__INCLUDED */

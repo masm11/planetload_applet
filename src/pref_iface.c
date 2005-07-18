@@ -15,7 +15,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: pref_iface.c 33 2005-07-18 09:20:32Z masm $
+ * $Id: pref_iface.c 34 2005-07-18 09:57:54Z masm $
  */
 
 #include "../config.h"
@@ -31,6 +31,8 @@
 #include <libgnomeui/gnome-color-picker.h>
 
 #include "app.h"
+#include "pref_iface.h"
+
 #include "i18n-support.h"
 
 struct prop_t {
@@ -267,7 +269,7 @@ void prop_iface(GtkWidget *iface)
     
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(pp->ppp_no),
 	    !nsa_iface_get_is_ppp(NSA_IFACE(pp->iface)));
-    /* yes だけ見てればいいので、no のボタンは signal connect しない。*/
+    /* I use only "YES" button, so I ignore "NO" button signal. */
     
     lb = gtk_label_new(_("PPP Lock File:"));
     gtk_table_attach_defaults(GTK_TABLE(tbl), lb, 0, 1, 2, 3);

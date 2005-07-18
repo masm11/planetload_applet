@@ -15,7 +15,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: nsafinepainter.c 21 2005-07-18 07:57:00Z masm $
+ * $Id: nsafinepainter.c 34 2005-07-18 09:57:54Z masm $
  */
 
 #include "../config.h"
@@ -23,6 +23,7 @@
 #include <string.h>
 #include <math.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include "debug.h"
 #include "nsafinepainter.h"
 
 #include "i18n-support.h"
@@ -149,10 +150,6 @@ static GObject *nsa_fine_painter_constructor(
 
 static void nsa_fine_painter_destroy(GtkObject *object)
 {
-    NsaFinePainter *fine_painter = NSA_FINE_PAINTER(object);
-    NsaPainter *painter = NSA_PAINTER(fine_painter);
-    NsaIface *iface = painter->iface;
-    
     debug_log("nsa_fine_painter_destroy:\n");
     
     (*GTK_OBJECT_CLASS(parent_class)->destroy)(object);
@@ -204,10 +201,6 @@ static void nsa_fine_painter_paint(NsaPainter *painter, GdkRectangle *area)
 
 static void nsa_fine_painter_paint_graph(NsaFinePainter *fine_painter, GdkRectangle *area)
 {
-    NsaPainter *painter = NSA_PAINTER(fine_painter);
-    NsaIface *iface = painter->iface;
-//    debug_log("paint_graph: area: %d,%d,%d,%d.\n", area->x, area->y, area->width, area->height);
-    
     pixdata_draw(&fine_painter->layers.bg, fine_painter);
     pixdata_draw(&fine_painter->layers.fg, fine_painter);
     pixdata_draw(&fine_painter->layers.hbar, fine_painter);

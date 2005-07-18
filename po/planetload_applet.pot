@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-18 17:29+0900\n"
+"POT-Creation-Date: 2005-07-18 18:52+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,155 +16,156 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/nsapainter.c:97
+#: src/nsapainter.c:98
 msgid "NsaIface Pointer"
 msgstr ""
 
-#: src/nsapainter.c:98
+#: src/nsapainter.c:99
 msgid "The pointer to the nsa_iface"
 msgstr ""
 
-#: src/preferences.c:293 src/preferences.c:319
+#: src/preferences.c:298 src/preferences.c:324
 msgid "Interfaces"
 msgstr ""
 
-#: src/preferences.c:332
+#: src/preferences.c:337
 msgid "Add"
 msgstr ""
 
-#: src/preferences.c:337
+#: src/preferences.c:342
 msgid "Copy"
 msgstr ""
 
-#: src/preferences.c:342
+#: src/preferences.c:347
 msgid "Remove"
 msgstr ""
 
-#: src/preferences.c:352
+#: src/preferences.c:357
 msgid "Edit..."
 msgstr ""
 
-#: src/preferences.c:360
+#: src/preferences.c:365
 msgid "Up"
 msgstr ""
 
-#: src/preferences.c:365
+#: src/preferences.c:370
 msgid "Down"
 msgstr ""
 
-#: src/preferences.c:439
+#: src/preferences.c:444
 msgid "Options"
 msgstr ""
 
-#: src/preferences.c:445
+#: src/preferences.c:450
 msgid "Font:"
 msgstr ""
 
-#: src/preferences.c:455
+#: src/preferences.c:460
 msgid "Update Interval:"
 msgstr ""
 
-#: src/preferences.c:464
+#: src/preferences.c:469
 msgid "Painter:"
 msgstr ""
 
-#: src/preferences.c:468
+#: src/preferences.c:473
 msgid "Fine"
 msgstr ""
 
-#: src/preferences.c:474
+#: src/preferences.c:479
 msgid "Light"
 msgstr ""
 
-#: src/preferences.c:480
+#: src/preferences.c:485
 msgid "Split"
 msgstr ""
 
-#: src/preferences.c:583
+#: src/preferences.c:588
 msgid "Planet"
 msgstr ""
 
-#: src/preferences.c:596
+#: src/preferences.c:601
 msgid "Command to Get Scheme List:"
 msgstr ""
 
-#: src/preferences.c:606
+#: src/preferences.c:611
 msgid "Command to Change Scheme:"
 msgstr ""
 
-#: src/preferences.c:616
+#: src/preferences.c:621
 msgid "Scheme Label:"
 msgstr ""
 
-#: src/preferences.c:653
+#: src/preferences.c:658
 msgid "Planetload Applet Settings"
 msgstr ""
 
-#: src/pref_iface.c:132
+#: src/pref_iface.c:134
 msgid "Text:"
 msgstr ""
 
-#: src/pref_iface.c:133 src/pref_iface.c:150
+#: src/pref_iface.c:135 src/pref_iface.c:152
 msgid "UP:"
 msgstr ""
 
-#: src/pref_iface.c:135 src/pref_iface.c:152
+#: src/pref_iface.c:137 src/pref_iface.c:154
 msgid "DIAL:"
 msgstr ""
 
-#: src/pref_iface.c:137 src/pref_iface.c:154
+#: src/pref_iface.c:139 src/pref_iface.c:156
 msgid "DOWN:"
 msgstr ""
 
-#: src/pref_iface.c:140
+#: src/pref_iface.c:142
 msgid "Bar:"
 msgstr ""
 
-#: src/pref_iface.c:143
+#: src/pref_iface.c:145
 msgid "Foreground:"
 msgstr ""
 
-#: src/pref_iface.c:144
+#: src/pref_iface.c:146
 msgid "OUT:"
 msgstr ""
 
-#: src/pref_iface.c:146
+#: src/pref_iface.c:148
 msgid "IN:"
 msgstr ""
 
-#: src/pref_iface.c:149
+#: src/pref_iface.c:151
 msgid "Background:"
 msgstr ""
 
-#: src/pref_iface.c:161
+#: src/pref_iface.c:163
 msgid "Colors"
 msgstr ""
 
-#: src/pref_iface.c:231
+#: src/pref_iface.c:233
 msgid "Interface Settings"
 msgstr ""
 
-#: src/pref_iface.c:245
+#: src/pref_iface.c:247
 msgid "Network Interface:"
 msgstr ""
 
-#: src/pref_iface.c:254
+#: src/pref_iface.c:256
 msgid "PPP:"
 msgstr ""
 
-#: src/pref_iface.c:265
+#. I use only "YES" button, so I ignore "NO" button signal.
+#: src/pref_iface.c:274
 msgid "PPP Lock File:"
 msgstr ""
 
-#: src/pref_iface.c:274
+#: src/pref_iface.c:283
 msgid "Size:"
 msgstr ""
 
-#: src/pref_iface.c:283
+#: src/pref_iface.c:292
 msgid "Click Command When Up:"
 msgstr ""
 
-#: src/pref_iface.c:292
+#: src/pref_iface.c:301
 msgid "Click Command When Down:"
 msgstr ""
 

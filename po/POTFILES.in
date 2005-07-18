@@ -1,5 +1,6 @@
-# $Id: POTFILES.in 23 2005-07-18 08:02:27Z masm $
+# $Id: POTFILES.in 34 2005-07-18 09:57:54Z masm $
 src/planetload_applet.c
+src/planetload_applet.h
 src/nsaiface.c
 src/nsaiface.h
 src/nsapainter.c
@@ -11,8 +12,11 @@ src/nsalightpainter.h
 src/nsasplitpainter.c
 src/nsasplitpainter.h
 src/preferences.c
+src/preferences.h
 src/pref_iface.c
+src/pref_iface.h
 src/debug.c
+src/debug.h
 src/appconf.c
 src/appconf.h
 src/app.h
