@@ -15,7 +15,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: pref_iface.c 31 2005-07-18 09:19:17Z masm $
+ * $Id: pref_iface.c 33 2005-07-18 09:20:32Z masm $
  */
 
 #include "../config.h"
@@ -262,7 +262,7 @@ void prop_iface(GtkWidget *iface)
     g_signal_connect(G_OBJECT(pp->ppp_yes), "toggled",
 	    G_CALLBACK(ppp_changed_cb), pp);
     
-    pp->ppp_no = gtk_radio_button_new_with_label_from_widget(pp->ppp_yes, "NO");
+    pp->ppp_no = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(pp->ppp_yes), "NO");
     gtk_table_attach_defaults(GTK_TABLE(tbl), pp->ppp_no, 2, 3, 1, 2);
     
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(pp->ppp_no),
