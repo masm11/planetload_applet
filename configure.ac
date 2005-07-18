@@ -1,6 +1,6 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
-# $Id:$
+# $Id: configure.ac 23 2005-07-18 08:02:27Z masm $
 
 AC_PREREQ(2.57)
 

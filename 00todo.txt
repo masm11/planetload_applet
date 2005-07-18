@@ -1,4 +1,4 @@
-# $Id:$
+# $Id: 00todo.txt 23 2005-07-18 08:02:27Z masm $
 *: done
 -: todo
 
