@@ -15,7 +15,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: about.c 21 2005-07-18 07:57:00Z masm $
+ * $Id: about.c 29 2005-07-18 09:04:38Z masm $
  */
 
 #include "../config.h"
@@ -58,7 +58,7 @@ void about(BonoboUIComponent *uic, gpointer data, const gchar *verbname)
     
     w = gnome_about_new(
 	    "Planetload Applet", VERSION,
-	    "(C) 2003-2004 Yuuki Harano",
+	    "(C) 2003-2005 Yuuki Harano",
 	    _("Released under the GNU General Public License.\n\n"
 	    "A network traffic monitor, cooperative with Planet."),
 	    authors,
