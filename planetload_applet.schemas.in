@@ -1,4 +1,4 @@
-<!-- $Id: planetload_applet.schemas.in 23 2005-07-18 08:02:27Z masm $ -->
+<!-- $Id: planetload_applet.schemas.in 27 2005-07-18 08:25:20Z masm $ -->
 <gconfschemafile>
 <schemalist>
 
@@ -93,6 +93,26 @@
 	</locale>
 </schema>
 <schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.is_ppp</key>
+	<owner>planetload-applet-2</owner>
+	<type>bool</type>
+	<default>false</default>
+	<locale name="C">
+		<short>whether ppp</short>
+		<long>whether interface is ppp.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.lock_file</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default></default>
+	<locale name="C">
+		<short>ppp lock file</short>
+		<long>name of ppp lock file</long>
+	</locale>
+</schema>
+<schema>
 	<key>/schemas/apps/planetload_applet/prefs/if0.color0</key>
 	<owner>planetload-applet-2</owner>
 	<type>string</type>
@@ -163,13 +183,43 @@
 	</locale>
 </schema>
 <schema>
-	<key>/schemas/apps/planetload_applet/prefs/if0.cmd</key>
+	<key>/schemas/apps/planetload_applet/prefs/if0.color7</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default>ffff:0000:0000:0000</default>
+	<locale name="C">
+		<short>no address background color</short>
+		<long>background color when interface has no address.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.color8</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default>ffff:dcdc:dada:d5d5</default>
+	<locale name="C">
+		<short>no address text color</short>
+		<long>text color when interface has no address.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.cmd_up</key>
 	<owner>planetload-applet-2</owner>
 	<type>string</type>
 	<default></default>
 	<locale name="C">
-		<short>click command</short>
-		<long>command executed when you click.</long>
+		<short>click command when up</short>
+		<long>command executed when you click while interface is up.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/if0.cmd_down</key>
+	<owner>planetload-applet-2</owner>
+	<type>string</type>
+	<default></default>
+	<locale name="C">
+		<short>click command when down</short>
+		<long>command executed when you click while interface is down.</long>
 	</locale>
 </schema>
 </schemalist>
