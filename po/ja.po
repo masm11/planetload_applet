@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: planetload_applet 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-07-18 17:29+0900\n"
-"PO-Revision-Date: 2005-07-18 17:37+0900\n"
+"PO-Revision-Date: 2005-07-18 18:16+0900\n"
 "Last-Translator: Yuuki Harano <masm@flowernet.gr.jp>\n"
 "Language-Team: Japanese <masm@flowernet.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -161,11 +161,11 @@ msgstr "サイズ:"
 
 #: src/pref_iface.c:283
 msgid "Click Command When Up:"
-msgstr "up時にクリックした時のコマンド:"
+msgstr "UP時にクリックした時のコマンド:"
 
 #: src/pref_iface.c:292
 msgid "Click Command When Down:"
-msgstr "down時にクリックした時のコマンド:"
+msgstr "DOWN時にクリックした時のコマンド:"
 
 #: src/about.c:62
 msgid ""
@@ -207,20 +207,19 @@ msgstr "インタフェースが上がっている時の背景色"
 
 #: planetload_applet.schemas.in.h:4
 msgid "click command when down"
-msgstr "down時にクリックした時のコマンド:"
+msgstr "DOWN時にクリックした時のコマンド:"
 
 #: planetload_applet.schemas.in.h:5
 msgid "click command when up"
-msgstr "up時にクリックした時のコマンド:"
+msgstr "UP時にクリックした時のコマンド:"
 
 #: planetload_applet.schemas.in.h:6
 msgid "command executed when you click while interface is down."
-msgstr "down時にクリックした時に実行するコマンド"
+msgstr "DOWN時にクリックした時に実行するコマンド"
 
 #: planetload_applet.schemas.in.h:7
-#, fuzzy
 msgid "command executed when you click while interface is up."
-msgstr "up時にクリックした時に実行するコマンド"
+msgstr "UP時にクリックした時に実行するコマンド"
 
 #: planetload_applet.schemas.in.h:8
 msgid "command to change scheme."
@@ -232,11 +231,11 @@ msgstr "スキーム名のリストを得るコマンド"
 
 #: planetload_applet.schemas.in.h:10
 msgid "down background color."
-msgstr "down時背景色"
+msgstr "DOWN時背景色"
 
 #: planetload_applet.schemas.in.h:11
 msgid "down text color."
-msgstr "down時テキスト色"
+msgstr "DOWN時テキスト色"
 
 #: planetload_applet.schemas.in.h:12
 msgid "foreground color"
@@ -323,7 +322,6 @@ msgid "update interval."
 msgstr "更新間隔"
 
 #: planetload_applet.schemas.in.h:33
-#, fuzzy
 msgid "whether interface is ppp."
 msgstr "インタフェースがPPPかどうか"
 
