@@ -1,4 +1,4 @@
-#
+# $Id: Makefile.am 21 2005-07-18 07:57:00Z masm $
 
 SUBDIRS = m4 src po
 
@@ -32,6 +32,9 @@ CLEANFILES = $(server_DATA) $(server_in_files) $(schema_DATA)
 
 @INTLTOOL_SERVER_RULE@
 @INTLTOOL_SCHEMAS_RULE@
+
+distcheck-hook:
+	$(srcdir)/check.sh $(distdir) $(top_srcdir)
 
 ACLOCAL_AMFLAGS = -I m4 -I /usr/local/share/aclocal
 DISTCHECK_CONFIGURE_FLAGS = --disable-schemas-install
