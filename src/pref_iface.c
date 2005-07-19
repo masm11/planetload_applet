@@ -15,7 +15,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: pref_iface.c 34 2005-07-18 09:57:54Z masm $
+ * $Id: pref_iface.c 37 2005-07-19 13:09:22Z masm $
  */
 
 #include "../config.h"
@@ -134,7 +134,7 @@ static GtkWidget *make_color_frame(struct prop_t *pp)
 	{ 0, 0, 0, N_("Text:"),   0, },
 	{ 1, 0, 0, N_("UP:"),   0, },
 	{ 2, 0, 1, NULL,          COL_TEXT, },
-	{ 3, 0, 0, N_("DIAL:"), 0, },
+	{ 3, 0, 0, N_("CONNECT:"), 0, },
 	{ 4, 0, 1, NULL,          COL_TEXT_NOADDR, },
 	{ 5, 0, 0, N_("DOWN:"), 0, },
 	{ 6, 0, 1, NULL,          COL_TEXT_DOWN, },
@@ -151,7 +151,7 @@ static GtkWidget *make_color_frame(struct prop_t *pp)
 	{ 0, 3, 0, N_("Background:"), 0, },
 	{ 1, 3, 0, N_("UP:"), 0, },
 	{ 2, 3, 1, NULL,          COL_BG, },
-	{ 3, 3, 0, N_("DIAL:"), 0, },
+	{ 3, 3, 0, N_("CONNECT:"), 0, },
 	{ 4, 3, 1, NULL,          COL_BG_NOADDR, },
 	{ 5, 3, 0, N_("DOWN:"), 0, },
 	{ 6, 3, 1, NULL,          COL_DOWN, },
@@ -289,23 +289,23 @@ void prop_iface(GtkWidget *iface)
     g_signal_connect(G_OBJECT(pp->width), "value-changed",
 	    G_CALLBACK(size_changed_cb), pp);
     
-    lb = gtk_label_new(_("Click Command When Up:"));
+    lb = gtk_label_new(_("Click Command While Down:"));
     gtk_table_attach_defaults(GTK_TABLE(tbl), lb, 0, 1, 4, 5);
     
-    pp->cmd_up = gtk_entry_new();
-    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->cmd_up, 1, 3, 4, 5);
-    gtk_entry_set_text(GTK_ENTRY(pp->cmd_up), nsa_iface_get_cmd_up(NSA_IFACE(pp->iface)));
-    g_signal_connect(G_OBJECT(pp->cmd_up), "changed",
-	    G_CALLBACK(command_up_changed_cb), pp);
-    
-    lb = gtk_label_new(_("Click Command When Down:"));
-    gtk_table_attach_defaults(GTK_TABLE(tbl), lb, 0, 1, 5, 6);
-    
     pp->cmd_down = gtk_entry_new();
-    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->cmd_down, 1, 3, 5, 6);
+    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->cmd_down, 1, 3, 4, 5);
     gtk_entry_set_text(GTK_ENTRY(pp->cmd_down), nsa_iface_get_cmd_down(NSA_IFACE(pp->iface)));
     g_signal_connect(G_OBJECT(pp->cmd_down), "changed",
 	    G_CALLBACK(command_down_changed_cb), pp);
+    
+    lb = gtk_label_new(_("Click Command While Up:"));
+    gtk_table_attach_defaults(GTK_TABLE(tbl), lb, 0, 1, 5, 6);
+    
+    pp->cmd_up = gtk_entry_new();
+    gtk_table_attach_defaults(GTK_TABLE(tbl), pp->cmd_up, 1, 3, 5, 6);
+    gtk_entry_set_text(GTK_ENTRY(pp->cmd_up), nsa_iface_get_cmd_up(NSA_IFACE(pp->iface)));
+    g_signal_connect(G_OBJECT(pp->cmd_up), "changed",
+	    G_CALLBACK(command_up_changed_cb), pp);
     
     frame = make_color_frame(pp);
     gtk_box_pack_start(GTK_BOX(vbox), frame, FALSE, FALSE, 0);
