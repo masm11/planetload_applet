@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-18 18:58+0900\n"
+"POT-Creation-Date: 2005-07-19 21:31+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -109,7 +109,7 @@ msgid "UP:"
 msgstr ""
 
 #: src/pref_iface.c:137 src/pref_iface.c:154
-msgid "DIAL:"
+msgid "CONNECT:"
 msgstr ""
 
 #: src/pref_iface.c:139 src/pref_iface.c:156
@@ -162,11 +162,11 @@ msgid "Size:"
 msgstr ""
 
 #: src/pref_iface.c:292
-msgid "Click Command When Up:"
+msgid "Click Command While Down:"
 msgstr ""
 
 #: src/pref_iface.c:301
-msgid "Click Command When Down:"
+msgid "Click Command While Up:"
 msgstr ""
 
 #: src/about.c:62

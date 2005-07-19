@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planetload_applet 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-18 18:58+0900\n"
-"PO-Revision-Date: 2005-07-18 18:16+0900\n"
+"POT-Creation-Date: 2005-07-19 21:31+0900\n"
+"PO-Revision-Date: 2005-07-19 21:32+0900\n"
 "Last-Translator: Yuuki Harano <masm@flowernet.gr.jp>\n"
 "Language-Team: Japanese <masm@flowernet.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -108,8 +108,8 @@ msgid "UP:"
 msgstr "UP:"
 
 #: src/pref_iface.c:137 src/pref_iface.c:154
-msgid "DIAL:"
-msgstr "ダイヤル中:"
+msgid "CONNECT:"
+msgstr "CONNECT:"
 
 #: src/pref_iface.c:139 src/pref_iface.c:156
 msgid "DOWN:"
@@ -161,12 +161,12 @@ msgid "Size:"
 msgstr "サイズ:"
 
 #: src/pref_iface.c:292
-msgid "Click Command When Up:"
-msgstr "UP時にクリックした時のコマンド:"
+msgid "Click Command While Down:"
+msgstr "DOWN時にクリックした時のコマンド:"
 
 #: src/pref_iface.c:301
-msgid "Click Command When Down:"
-msgstr "DOWN時にクリックした時のコマンド:"
+msgid "Click Command While Up:"
+msgstr "UP時にクリックした時のコマンド:"
 
 #: src/about.c:62
 msgid ""
@@ -341,6 +341,9 @@ msgstr "スキーム名を表示するかどうか"
 #: planetload_applet.schemas.in.h:37
 msgid "whether you use Planet."
 msgstr "Planet を使うかどうか"
+
+#~ msgid "DIAL:"
+#~ msgstr "ダイヤル中:"
 
 #~ msgid "click command"
 #~ msgstr "クリック時のコマンド:"
