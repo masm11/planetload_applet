@@ -1,10 +1,10 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
-# $Id: configure.ac 24 2005-07-18 08:12:27Z masm $
+# $Id: configure.ac 40 2005-07-19 13:29:20Z masm $
 
 AC_PREREQ(2.57)
 
-AC_INIT(planetload_applet, 20050718, masm@flowernet.gr.jp)
+AC_INIT(planetload_applet, 2.2, masm@flowernet.gr.jp)
 AC_CONFIG_SRCDIR(src/planetload_applet.c)
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
 
