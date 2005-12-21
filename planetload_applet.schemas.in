@@ -1,4 +1,4 @@
-<!-- $Id: planetload_applet.schemas.in 27 2005-07-18 08:25:20Z masm $ -->
+<!-- $Id: planetload_applet.schemas.in 43 2005-12-21 14:25:02Z masm $ -->
 <gconfschemafile>
 <schemalist>
 
@@ -70,6 +70,16 @@
 	<locale name="C">
 		<short>whether scheme name is displayed.</short>
 		<long>whether scheme name is displayed below graphs.</long>
+	</locale>
+</schema>
+<schema>
+	<key>/schemas/apps/planetload_applet/prefs/painter</key>
+	<owner>planetload-applet-2</owner>
+	<type>int</type>
+	<default>0</default>
+	<locale name="C">
+		<short>painter number</short>
+		<long>how to paint graph.</long>
 	</locale>
 </schema>
 <schema>
