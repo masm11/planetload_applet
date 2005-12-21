@@ -15,7 +15,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
- * $Id: appconf.c 21 2005-07-18 07:57:00Z masm $
+ * $Id: appconf.c 44 2005-12-21 14:25:23Z masm $
  */
 
 #include "../config.h"
@@ -171,7 +171,8 @@ gboolean appconf_load(struct app_t *app)
 	if (s != NULL)
 	    g_free(s);
 	
-	nsa_iface_set_is_ppp(iface, panel_applet_gconf_get_bool(applet, "is_ppp", NULL));
+	sprintf(key, "if%d.is_ppp", idx);
+	nsa_iface_set_is_ppp(iface, panel_applet_gconf_get_bool(applet, key, NULL));
 	
 	sprintf(key, "if%d.lock_file", idx);
 	s = panel_applet_gconf_get_string(applet, key, NULL);
