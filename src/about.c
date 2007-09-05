@@ -37,17 +37,17 @@
 #include "about.h"
 #include "i18n-support.h"
 
-static const gchar *authors[] = {
-    "Yuuki Harano <masm@flowernet.gr.jp>",
-    "Shun-ichi TAHARA <jado@flowernet.gr.jp>",
-    NULL
-};
+#define COPYRIGHT_YEAR		"2003-2007"
+#define COPYRIGHT_HOLDER	"Yuuki Harano"
 
-static const gchar *documenters[] = {
-    NULL
+static struct {
+    const gchar *name;
+    const gchar *mail;
+} authors[] = {
+    { "Yuuki Harano",		"masm@flowernet.gr.jp", },
+    { "Shun-ichi TAHARA",	"jado@flowernet.gr.jp", },
 };
-
-static const gchar *translator_credits = NULL;
+#define NAUTHORS (sizeof authors / sizeof authors[0])
 
 #ifdef HAVE_GNOME
 void about(BonoboUIComponent *uic, gpointer data, const gchar *verbname)
@@ -62,15 +62,25 @@ void about(BonoboUIComponent *uic, gpointer data, const gchar *verbname)
 	return;
     }
     
+    gchar **author_list = g_new(const gchar *, NAUTHORS + 1);
+    for (i = 0; i < NAUTHORS; i++) {
+	author_list[i] = g_strdup_printf("%s <%s>",
+		author[i].name, author[i].mail);
+    }
+    author_list[i] = NULL;
+    
     w = gnome_about_new(
 	    "Planetload Applet", VERSION,
-	    "(C) 2003-2005 Yuuki Harano",
+	    "(C) " COPYRIGHT_YEAR " " COPYRIGHT_HOLDER,
 	    _("Released under the GNU General Public License.\n\n"
 	    "A network traffic monitor, cooperative with Planet."),
-	    authors,
-	    documenters,
-	    translator_credits,
+	    author_list,
+	    NULL,
+	    NULL,
 	    NULL);
+    
+    g_strfreev(author_list);
+    author_list = NULL;
     
     gtk_window_set_screen(GTK_WINDOW(w),
 	    gtk_widget_get_screen(GTK_WIDGET(app->applet)));
@@ -88,13 +98,15 @@ void about(XfcePanelPlugin *plugin, gpointer data)
     XfceAboutInfo *info;
     GtkWidget *w;
     struct app_t *app = data;
+    int i;
     
     info = xfce_about_info_new(
 	    "Planetload Applet", VERSION,
 	    "A network traffic monitor, cooperative with Planet.",
-	    XFCE_COPYRIGHT_TEXT("2003-2007", "Yuuki Harano"),
+	    XFCE_COPYRIGHT_TEXT(COPYRIGHT_YEAR, COPYRIGHT_HOLDER),
 	    XFCE_LICENSE_GPL);
-    xfce_about_info_add_credit(info, "Yuuki Harano", "masm@flowernet.gr.jp", NULL);
+    for (i = 0; i < NAUTHORS; i++)
+	xfce_about_info_add_credit(info, authors[i].name, authors[i].mail, NULL);
     
     w = xfce_about_dialog_new_with_values(NULL, info, NULL);
     gtk_window_set_screen(GTK_WINDOW(w),
