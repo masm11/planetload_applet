@@ -61,7 +61,7 @@ AC_ARG_WITH(gnome, [Build with GNOME.], [
 
 case "$with_gnome" in
 yes)
-  PKG_CHECK_MODULES(GNOME, libpanelapplet-2.0 libgtop-2.0 libgnomeui-2.0)
+  PKG_CHECK_MODULES(GNOME, libpanelapplet-2.0)
   AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
   if test x"$GCONFTOOL" = xno; then
     AC_MSG_ERROR([gconftool-2 executable not found in your path - should be installed with GConf])
