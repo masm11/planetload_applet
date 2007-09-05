@@ -555,6 +555,13 @@ static void destroy_cb(XfcePanelPlugin *plugin, gpointer data)
     
     preferences_destroy(app);
 }
+
+static void save_config_cb(XfcePanelPlugin *plugin, gpointer data)
+{
+    struct app_t *app = data;
+    
+    appconf_save(app);
+}
 #endif
 
 #ifdef HAVE_GNOME
@@ -662,8 +669,7 @@ static void planetload_applet_start(XfcePanelPlugin *plugin)
     xfce_panel_plugin_set_expand(plugin, TRUE);
     
     g_signal_connect(plugin, "free-data", G_CALLBACK(destroy_cb), app);
-    // fixme:
-    // g_signal_connect(plugin, "save", G_CALLBACK(cpu_freq_write_config), NULL);
+    g_signal_connect(plugin, "save", G_CALLBACK(save_config_cb), app);
     g_signal_connect(plugin, "size-changed", G_CALLBACK(change_size_cb), app);
     g_signal_connect(plugin, "orientation-changed", G_CALLBACK(change_orient_cb), app);
     g_signal_connect(plugin, "configure-plugin", G_CALLBACK(preferences), app);
