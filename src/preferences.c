@@ -377,7 +377,7 @@ static GtkWidget *make_interface_pane(struct dialog_t *dp)
     return frame;
 }
 
-static void font_set_cb(GtkWidget *w, gchar *arg1, gpointer closure)
+static void font_set_cb(GtkWidget *w, gpointer closure)
 {
     struct dialog_t *dp = closure;
     struct app_t *app = dp->app;
