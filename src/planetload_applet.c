@@ -497,6 +497,13 @@ static void change_size_cb(GtkWidget *w, gint size, gpointer closure)
 {
     struct app_t *app = closure;
     
+#ifdef HAVE_XFCE4
+    if (get_applet_vert(app->applet))
+	gtk_widget_set_size_request(GTK_WIDGET(app->applet), size, -1);
+    else
+	gtk_widget_set_size_request(GTK_WIDGET(app->applet), -1, size);
+#endif
+    
     gtk_container_foreach(GTK_CONTAINER(app->pack), change_size_iter, NULL);
 }
 
