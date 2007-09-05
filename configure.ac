@@ -4,7 +4,7 @@
 
 AC_PREREQ(2.57)
 
-AC_INIT(planetload_applet, 2.2.1, masm@flowernet.gr.jp)
+AC_INIT(planetload_applet, 3.0, masm@flowernet.gr.jp)
 AC_CONFIG_SRCDIR(src/planetload_applet.c)
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
 
@@ -12,7 +12,7 @@ AM_MAINTAINER_MODE
 
 AC_CONFIG_HEADER([config.h])
 
-AC_PREFIX_PROGRAM(gnome-panel)
+dnl AC_PREFIX_PROGRAM(gnome-panel)
 
 AC_PROG_INTLTOOL
 
@@ -46,12 +46,65 @@ AC_ARG_ENABLE(debug, [  --enable-debug                Enable debug output],
 [AC_DEFINE(DEBUG, 1, [Define to 1 if you want to debug.])])
 
 # 
-PKG_CHECK_MODULES(GSTUFF, libpanelapplet-2.0 libgtop-2.0 libgnomeui-2.0)
-AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
-if test x"$GCONFTOOL" = xno; then
-  AC_MSG_ERROR([gconftool-2 executable not found in your path - should be installed with GConf])
-fi
-AM_GCONF_SOURCE_2
+PKG_CHECK_MODULES(GTK, gtk+-2.0 glib-2.0)
+
+AC_ARG_WITH(gnome, [Build with GNOME.], [
+  case "$withval" in
+  no)
+    with_gnome=no;;
+  *)
+    with_gnome=yes;;
+  esac
+],[
+  with_gnome=yes
+])
+
+case "$with_gnome" in
+yes)
+  PKG_CHECK_MODULES(GNOME, libpanelapplet-2.0 libgtop-2.0 libgnomeui-2.0)
+  AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
+  if test x"$GCONFTOOL" = xno; then
+    AC_MSG_ERROR([gconftool-2 executable not found in your path - should be installed with GConf])
+  fi
+  AM_GCONF_SOURCE_2
+  AC_DEFINE(HAVE_GNOME, 1, [Define to 1 if you have GNOME.])
+  ;;
+no)
+  AM_CONDITIONAL([GCONF_SCHEMAS_INSTALL], [false])
+  ;;
+*)
+  AC_MSG_ERROR([internal error...])
+  ;;
+esac
+
+AC_ARG_WITH(xfce4, [Build with Xfce4.], [
+  case "$withval" in
+  no)
+    with_xfce4=no;;
+  *)
+    with_xfce4=yes;;
+  esac
+],[
+  with_xfce4=yes
+])
+
+case "$with_xfce4" in
+yes)
+  PKG_CHECK_MODULES(XFCE4, libxfce4panel-1.0 libxfcegui4-1.0)
+  AC_DEFINE(HAVE_XFCE4, 1, [Define to 1 if you have Xfce4.])
+  ;;
+no)
+  ;;
+*)
+  AC_MSG_ERROR([internal error...])
+  ;;
+esac
+
+GSTUFF_CFLAGS="$GNOME_CFLAGS $XFCE4_CFLAGS $GTK_CFLAGS"
+GSTUFF_LIBS="$GNOME_LIBS $XFCE4_LIBS $GTK_LIBS"
+AC_SUBST(GSTUFF_CFLAGS)
+AC_SUBST(GSTUFF_LIBS)
+
 
 #
 dnl AM_WITH_NLS

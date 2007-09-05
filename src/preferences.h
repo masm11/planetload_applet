@@ -23,7 +23,12 @@
 
 #include "../config.h"
 
+#ifdef HAVE_GNOME
 void preferences(BonoboUIComponent *uic, gpointer data, const gchar *verbname);
+#endif
+#ifdef HAVE_XFCE4
+void preferences(XfcePanelPlugin *plugin, gpointer data);
+#endif
 void preferences_destroy(struct app_t *app);
 
 #endif	/* ifndef PREFERENCES_H__INCLUDED */

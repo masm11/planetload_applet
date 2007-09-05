@@ -26,9 +26,11 @@
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 #include <glib.h>
+#ifdef HAVE_GNOME
 #include <panel-applet.h>
 #include <panel-applet-gconf.h>
-#include <libgnomeui/gnome-color-picker.h>
+#endif
+#include <gtk/gtkcolorbutton.h>
 
 #include "app.h"
 #include "pref_iface.h"
@@ -48,14 +50,24 @@ struct prop_t {
 
 static void color_picker_set_color(GtkWidget *w, const struct color_t *col)
 {
-    gnome_color_picker_set_i16(GNOME_COLOR_PICKER(w),
-	    col->r, col->g, col->b, col->a);
+    GdkColor c = {
+	.pixel = 0,
+	.red = col->r,
+	.green = col->g,
+	.blue = col->b,
+    };
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(w), &c);
+    gtk_color_button_set_alpha(GTK_COLOR_BUTTON(w), col->a);
 }
 
 static void color_picker_get_color(GtkWidget *w, struct color_t *col)
 {
-    gnome_color_picker_get_i16(GNOME_COLOR_PICKER(w),
-	    &col->r, &col->g, &col->b, &col->a);
+    GdkColor c;
+    gtk_color_button_get_color(GTK_COLOR_BUTTON(w), &c);
+    col->r = c.red;
+    col->g = c.green;
+    col->b = c.blue;
+    col->a = gtk_color_button_get_alpha(GTK_COLOR_BUTTON(w));
 }
 
 static void iface_changed_cb(GtkWidget *w, gpointer closure)
@@ -180,10 +192,10 @@ static GtkWidget *make_color_frame(struct prop_t *pp)
 	    break;
 	    
 	case 1:
-	    w = gnome_color_picker_new();
+	    w = gtk_color_button_new();
 	    gtk_table_attach_defaults(GTK_TABLE(tbl), w,
 		    tp->x, tp->x + 1, tp->y, tp->y + 1);
-	    gnome_color_picker_set_use_alpha(GNOME_COLOR_PICKER(w), TRUE);
+	    gtk_color_button_set_use_alpha(GTK_COLOR_BUTTON(w), TRUE);
 	    color_picker_set_color(w,
 		    nsa_iface_get_color(NSA_IFACE(pp->iface), tp->coltype));
 	    g_object_set_data(G_OBJECT(w), "color_kind", GINT_TO_POINTER(tp->coltype));

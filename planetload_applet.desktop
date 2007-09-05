@@ -1,0 +1,7 @@
+[Xfce Panel]
+Type=X-XFCE-PanelPlugin
+Encoding=UTF-8
+Name=Planetload Applet
+Comment=Network traffic monitor
+; Icon=cpu
+X-XFCE-Exec=/home/masm/src/traffic_applet/src-xfce/src/planetload_applet

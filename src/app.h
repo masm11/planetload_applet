@@ -26,12 +26,22 @@
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 #include <glib.h>
+#ifdef HAVE_GNOME
 #include <panel-applet.h>
+#endif
+#ifdef HAVE_XFCE4
+#include <libxfce4panel/xfce-panel-plugin.h>
+#endif
 
 #include "nsaiface.h"
 
 struct app_t {
+#ifdef HAVE_GNOME
     PanelApplet *applet;
+#endif
+#ifdef HAVE_XFCE4
+    XfcePanelPlugin *applet;
+#endif
     GtkWidget *pack;
     GtkWidget *scheme_label_bar, *scheme_label_text, *menu;
     GtkTooltips *tooltips;

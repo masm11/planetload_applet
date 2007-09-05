@@ -31,7 +31,12 @@
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 #include <glib.h>
+#ifdef HAVE_GNOME
 #include <panel-applet.h>
+#endif
+#ifdef HAVE_XFCE4
+#include <libxfce4panel/xfce-panel-plugin.h>
+#endif
 
 #include "about.h"
 #include "app.h"
@@ -143,6 +148,7 @@ static void scheme_change(struct app_t *app, gchar *name)
     }
 }
 
+#ifdef HAVE_GNOME
 static void scheme_cb(BonoboUIComponent *uic, gpointer data, const gchar *verbname)
 {
     struct app_t *app = data;
@@ -153,6 +159,17 @@ static void scheme_cb(BonoboUIComponent *uic, gpointer data, const gchar *verbna
 	scheme_change(app, scheme);
     }
 }
+#endif
+
+#ifdef HAVE_XFCE4
+static void scheme_cb(GtkWidget *widget, gpointer data)
+{
+    struct app_t *app = data;
+    
+    gchar *name = g_object_get_data(G_OBJECT(widget), "scheme-name");
+    scheme_change(app, name);
+}
+#endif
 
 /**************** left-menu ****/
 
@@ -206,6 +223,7 @@ static void lmenu_setup(struct app_t *app, GList *schemes)
 
 /**************** right-menu ****/
 
+#ifdef HAVE_GNOME
 static const BonoboUIVerb rmenu_verbs [] = 
 {
 //    BONOBO_UI_VERB("PlanetloadAppletDetails", showinfo_cb),
@@ -318,6 +336,23 @@ static void rmenu_setup(struct app_t *app, GList *schemes)
     
     debug_log("rmenu_setup: done.\n");
 }
+#endif
+
+#ifdef HAVE_XFCE4
+static void rmenu_setup(struct app_t *app, GList *schemes)
+{
+    GList *lp;
+    for (lp = schemes; lp != NULL; lp = g_list_next(lp)) {
+	gchar *str = g_strdup(lp->data);
+	
+	GtkWidget *item = gtk_menu_item_new_with_label(str);
+	g_object_set_data_full(G_OBJECT(item), "scheme-name", str, g_free);
+	g_signal_connect(G_OBJECT(item), "activate", G_CALLBACK(scheme_cb), app);
+	gtk_widget_show(item);
+	xfce_panel_plugin_menu_insert_item(app->applet, GTK_MENU_ITEM(item));
+    }
+}
+#endif
 
 void setup_schemes_menu(struct app_t *app)
 {
@@ -371,6 +406,7 @@ void painter_change(struct app_t *app)
 
 /**************** panel orient changed ****/
 
+#ifdef HAVE_GNOME
 static gboolean get_applet_vert(PanelApplet *applet)
 {
     switch (panel_applet_get_orient(applet)) {
@@ -383,6 +419,14 @@ static gboolean get_applet_vert(PanelApplet *applet)
 	break;
     }
 }
+#endif
+
+#ifdef HAVE_XFCE4
+static gboolean get_applet_vert(XfcePanelPlugin *plugin)
+{
+    return xfce_panel_plugin_get_orientation(plugin) == GTK_ORIENTATION_VERTICAL;
+}
+#endif
 
 static void reparent_iter(GtkWidget *w, gpointer data)
 {
@@ -398,13 +442,8 @@ static void setvert_iter(GtkWidget *w, gpointer data)
     nsa_iface_set_vert(NSA_IFACE(w), is_vert);
 }
 
-static void change_orient_cb(PanelApplet *applet, gint arg1, gpointer closure)
+static void change_orient(struct app_t *app, int is_vert)
 {
-    struct app_t *app = closure;
-    int is_vert;
-    
-    is_vert = get_applet_vert(applet);
-    
     if (is_vert != app->is_vert) {
 	GtkWidget *from, *to, *parent;
 	
@@ -427,6 +466,24 @@ static void change_orient_cb(PanelApplet *applet, gint arg1, gpointer closure)
 	gtk_widget_show_all(to);
     }
 }
+
+#ifdef HAVE_GNOME
+static void change_orient_cb(PanelApplet *applet, gint arg1, gpointer closure)
+{
+    struct app_t *app = closure;
+    int is_vert = get_applet_ver(applet);
+    
+    change_orient(app, is_vert);
+}
+#endif
+
+#ifdef HAVE_XFCE4
+static void change_orient_cb(XfcePanelPlugin *plugin, GtkOrientation orientation, gpointer closure)
+{
+    struct app_t *app = closure;
+    change_orient(app, orientation == GTK_ORIENTATION_VERTICAL);
+}
+#endif
 
 /**************** panel size changed ****/
 
@@ -472,6 +529,7 @@ void timer_set(struct app_t *app)
 
 /**************** main ****/
 
+#ifdef HAVE_GNOME
 static void destroy_cb(PanelApplet *applet, gpointer data)
 {
     struct app_t *app = data;
@@ -485,7 +543,21 @@ static void destroy_cb(PanelApplet *applet, gpointer data)
     
 //    g_free(app);
 }
+#endif
 
+#ifdef HAVE_XFCE4
+static void destroy_cb(XfcePanelPlugin *plugin, gpointer data)
+{
+    struct app_t *app = data;
+    
+    if (app->timeout_id != 0)
+	gtk_timeout_remove(app->timeout_id);
+    
+    preferences_destroy(app);
+}
+#endif
+
+#ifdef HAVE_GNOME
 static gboolean planetload_applet_start(
 	PanelApplet *applet, const gchar *iid, gpointer data)
 {
@@ -569,3 +641,82 @@ PANEL_APPLET_BONOBO_FACTORY(
 	VERSION,
 	planetload_applet_start,
 	NULL);
+#endif
+
+#ifdef HAVE_XFCE4
+static void planetload_applet_start(XfcePanelPlugin *plugin)
+{
+    struct app_t *app;
+    GtkWidget *vbox;
+    
+    // xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
+    xfce_textdomain("planetload_applet", "/usr/share/locale", "UTF-8");
+    
+    app = g_new(struct app_t, 1);
+    memset(app, 0, sizeof *app);
+    
+    app->use_planet = TRUE;
+    
+    app->applet = plugin;
+    
+    xfce_panel_plugin_set_expand(plugin, TRUE);
+    
+    g_signal_connect(plugin, "free-data", G_CALLBACK(destroy_cb), app);
+    // fixme:
+    // g_signal_connect(plugin, "save", G_CALLBACK(cpu_freq_write_config), NULL);
+    g_signal_connect(plugin, "size-changed", G_CALLBACK(change_size_cb), app);
+    g_signal_connect(plugin, "orientation-changed", G_CALLBACK(change_orient_cb), app);
+    g_signal_connect(plugin, "configure-plugin", G_CALLBACK(preferences), app);
+    g_signal_connect(plugin, "about", G_CALLBACK(about), app);
+    
+    app->is_vert = get_applet_vert(plugin);
+    
+    app->tooltips = gtk_tooltips_new();
+    
+    vbox = gtk_vbox_new(FALSE, 0);
+    gtk_container_add(GTK_CONTAINER(plugin), vbox);
+    xfce_panel_plugin_add_action_widget(plugin, vbox);
+    
+    if (!app->is_vert)
+	app->pack = gtk_hbox_new(FALSE, 0);
+    else
+	app->pack = gtk_vbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(vbox), app->pack, TRUE, TRUE, 0);
+    
+    if (!appconf_load(app)) {
+	appconf_init(app);
+	appconf_save(app);
+    }
+    
+    xfce_panel_plugin_menu_show_configure(plugin);
+    xfce_panel_plugin_menu_show_about(plugin);
+    setup_schemes_menu(app);
+    
+    app->scheme_label_bar = gtk_event_box_new();
+    gtk_box_pack_end(GTK_BOX(vbox), app->scheme_label_bar, FALSE, FALSE, 0);
+    g_signal_connect(G_OBJECT(app->scheme_label_bar), "button-press-event",
+	    G_CALLBACK(lmenu_popup), app);
+    
+    {
+	gchar buf[128];
+	app->scheme_label_text = gtk_label_new(scheme_get_current(app, buf));
+	gtk_container_add(GTK_CONTAINER(app->scheme_label_bar), app->scheme_label_text);
+    }
+    
+    {
+	PangoFontDescription *pfd;
+	pfd = pango_font_description_from_string(app->fontname);
+	gtk_widget_modify_font(app->scheme_label_text, pfd);
+	pango_font_description_free(pfd);
+    }
+    
+    gtk_widget_show_all(GTK_WIDGET(vbox));
+    
+    disp_scheme_onoff(app);
+    
+    timer_set(app);
+}
+
+XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL(planetload_applet_start)
+
+#endif

@@ -27,7 +27,7 @@
 #include <glib.h>
 
 struct color_t {
-    gushort a, r, g, b;
+    guint16 a, r, g, b;
 };
 
 void mix_color(struct color_t *c,

@@ -26,10 +26,11 @@
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 #include <glib.h>
+#ifdef HAVE_GNOME
 #include <panel-applet.h>
 #include <panel-applet-gconf.h>
-#include <libgnomeui/gnome-color-picker.h>
-#include <libgnomeui/gnome-font-picker.h>
+#endif
+#include <gtk/gtkfontbutton.h>
 
 #include "app.h"
 #include "appconf.h"
@@ -382,7 +383,7 @@ static void font_set_cb(GtkWidget *w, gchar *arg1, gpointer closure)
     struct app_t *app = dp->app;
     const gchar *font;
     
-    font = gnome_font_picker_get_font_name(GNOME_FONT_PICKER(w));
+    font = gtk_font_button_get_font_name(GTK_FONT_BUTTON(w));
     app->fontname = g_strdup(font);
     
     font_change(app);
@@ -451,10 +452,10 @@ static GtkWidget *make_options_pane(struct dialog_t *dp)
     gtk_table_attach_defaults(GTK_TABLE(table), w, 0, 1, 0, 1);
     gtk_label_set_justify(GTK_LABEL(w), GTK_JUSTIFY_RIGHT);
     
-    w = gnome_font_picker_new();
+    w = gtk_font_button_new();
     gtk_table_attach_defaults(GTK_TABLE(table), w, 1, 4, 0, 1);
-    gnome_font_picker_set_mode(GNOME_FONT_PICKER(w), GNOME_FONT_PICKER_MODE_FONT_INFO);
-    gnome_font_picker_set_font_name(GNOME_FONT_PICKER(w), app->fontname);
+//    gtk_font_button_set_mode(GTK_FONT_BUTTON(w), GTK_FONT_BUTTON_MODE_FONT_INFO);
+    gtk_font_button_set_font_name(GTK_FONT_BUTTON(w), app->fontname);
     g_signal_connect(G_OBJECT(w), "font-set", G_CALLBACK(font_set_cb), dp);
     
     w = gtk_label_new(_("Update Interval:"));
@@ -637,6 +638,7 @@ GtkWidget *make_planet_pane(struct dialog_t *dp)
     return frame;
 }
 
+#ifdef HAVE_GNOME
 void preferences(BonoboUIComponent *uic, gpointer data, const gchar *verbname)
 {
     struct app_t *app = data;
@@ -682,6 +684,55 @@ void preferences(BonoboUIComponent *uic, gpointer data, const gchar *verbname)
     
     gtk_widget_show(dialog);
 }
+#endif
+
+#ifdef HAVE_XFCE4
+void preferences(XfcePanelPlugin *plugin, gpointer data)
+{
+    struct app_t *app = data;
+    GtkWidget *dialog;
+    GtkWidget *hbox, *vbox, *w;
+    struct dialog_t *dp;
+    
+    if (app->dialog != NULL)
+	return;
+    
+    dp = g_new(struct dialog_t, 1);
+    app->dialog = dp;
+    
+    memset(dp, 0, sizeof *dp);
+    
+    dp->app = app;
+    
+    dialog = dp->dialog = gtk_dialog_new_with_buttons(
+	    _("Planetload Applet Settings"), NULL,
+	    GTK_DIALOG_DESTROY_WITH_PARENT,
+	    GTK_STOCK_CLOSE, GTK_RESPONSE_ACCEPT, NULL);
+    
+    hbox = gtk_hbox_new(FALSE, 5);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), hbox, FALSE, FALSE, 0);
+    gtk_container_set_border_width(GTK_CONTAINER(hbox), 5);
+    
+    w = make_interface_pane(dp);
+    gtk_box_pack_start(GTK_BOX(hbox), w, FALSE, FALSE, 0);
+    
+    vbox = gtk_vbox_new(FALSE, 5);
+    gtk_box_pack_start(GTK_BOX(hbox), vbox, FALSE, FALSE, 0);
+    
+    w = make_options_pane(dp);
+    gtk_box_pack_start(GTK_BOX(vbox), w, FALSE, FALSE, 0);
+    
+    w = make_planet_pane(dp);
+    gtk_box_pack_start(GTK_BOX(vbox), w, FALSE, FALSE, 0);
+    
+    gtk_widget_show_all(hbox);
+    
+    g_signal_connect(G_OBJECT(dialog), "destroy", G_CALLBACK(destroy_cb), dp);
+    g_signal_connect(G_OBJECT(dialog), "response", G_CALLBACK(close_cb), dp);
+    
+    gtk_widget_show(dialog);
+}
+#endif
 
 void preferences_destroy(struct app_t *app)
 {

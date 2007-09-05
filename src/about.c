@@ -26,7 +26,12 @@
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 #include <glib.h>
+#ifdef HAVE_GNOME
 #include <libgnomeui/gnome-about.h>
+#endif
+#ifdef HAVE_XFCE4
+#include <libxfcegui4/xfce_aboutdialog.h>
+#endif
 
 #include "app.h"
 #include "about.h"
@@ -44,6 +49,7 @@ static const gchar *documenters[] = {
 
 static const gchar *translator_credits = NULL;
 
+#ifdef HAVE_GNOME
 void about(BonoboUIComponent *uic, gpointer data, const gchar *verbname)
 {
     static GtkWidget *w = NULL;
@@ -74,3 +80,31 @@ void about(BonoboUIComponent *uic, gpointer data, const gchar *verbname)
     
     gtk_widget_show(w);
 }
+#endif
+
+#ifdef HAVE_XFCE4
+void about(XfcePanelPlugin *plugin, gpointer data)
+{
+    XfceAboutInfo *info;
+    GtkWidget *w;
+    struct app_t *app = data;
+    
+    info = xfce_about_info_new(
+	    "Planetload Applet", VERSION,
+	    "A network traffic monitor, cooperative with Planet.",
+	    XFCE_COPYRIGHT_TEXT("2003-2007", "Yuuki Harano"),
+	    XFCE_LICENSE_GPL);
+    xfce_about_info_add_credit(info, "Yuuki Harano", "masm@flowernet.gr.jp", NULL);
+    
+    w = xfce_about_dialog_new_with_values(NULL, info, NULL);
+    gtk_window_set_screen(GTK_WINDOW(w),
+	    gtk_widget_get_screen(GTK_WIDGET(app->applet)));
+    gtk_window_set_wmclass(GTK_WINDOW(w), "planetloadApplet", "PlanetloadApplet");
+    
+    gtk_dialog_run(GTK_DIALOG(w));
+    
+    gtk_widget_destroy(w);
+    
+    xfce_about_info_free(info);
+}
+#endif

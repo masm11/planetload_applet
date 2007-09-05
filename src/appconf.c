@@ -23,11 +23,13 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
+#ifdef HAVE_GNOME
 #include <panel-applet.h>
 #include <panel-applet-gconf.h>
 
 #include <gconf/gconf.h>
 #include <gconf/gconf-client.h>
+#endif
 
 #include "app.h"
 #include "appconf.h"
@@ -56,6 +58,7 @@ static gboolean col_to_str(const struct color_t *col, gchar *buf);
 
 static void appconf_save_iter(GtkWidget *widget, gpointer data)
 {
+#ifdef HAVE_GNOME
     struct appconf_save_work_t *w = data;
     PanelApplet *applet = w->app->applet;
     NsaIface *iface = NSA_IFACE(widget);
@@ -87,10 +90,12 @@ static void appconf_save_iter(GtkWidget *widget, gpointer data)
     panel_applet_gconf_set_string(applet, key, nsa_iface_get_cmd_down(iface), NULL);
     
     w->idx++;
+#endif
 }
 
 void appconf_save(struct app_t *app)
 {
+#ifdef HAVE_GNOME
     PanelApplet *applet = app->applet;
     struct appconf_save_work_t work, *w = &work;
     
@@ -109,6 +114,7 @@ void appconf_save(struct app_t *app)
     panel_applet_gconf_set_int(applet, "interval", app->interval, NULL);
     panel_applet_gconf_set_bool(applet, "disp_scheme", app->display_scheme, NULL);
     panel_applet_gconf_set_bool(applet, "use_planet", app->use_planet, NULL);
+#endif
 }
 
 
@@ -120,6 +126,7 @@ struct appconf_load_work_t {
 
 gboolean appconf_load(struct app_t *app)
 {
+#ifdef HAVE_GNOME
     PanelApplet *applet = app->applet;
     int idx, num;
     
@@ -212,6 +219,9 @@ gboolean appconf_load(struct app_t *app)
     }
     
     return TRUE;
+#else
+    return FALSE;
+#endif
 }
 
 void appconf_init(struct app_t *app)

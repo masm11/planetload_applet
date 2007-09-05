@@ -23,6 +23,11 @@
 
 #include "../config.h"
 
+#ifdef HAVE_GNOME
 void about(BonoboUIComponent *uic, gpointer data, const gchar *verbname);
+#endif
+#ifdef HAVE_XFCE4
+void about(XfcePanelPlugin *plugin, gpointer data);
+#endif
 
 #endif	/* ifndef ABOUT_H__INCLUDED */

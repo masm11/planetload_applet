@@ -22,7 +22,9 @@
 
 #include <string.h>
 #include <math.h>
+#ifdef HAVE_GNOME
 #include <glibtop/netload.h>
+#endif
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <gtk/gtkmarshal.h>
