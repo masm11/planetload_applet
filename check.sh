@@ -1,5 +1,4 @@
 #!/bin/sh
-# $Id: check.sh 293 2005-06-25 12:30:40Z masm $
 
 distdir="$1"
 top_srcdir="$2"

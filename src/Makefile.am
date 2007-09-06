@@ -1,5 +1,3 @@
-# $Id: Makefile.am 36 2005-07-18 09:58:58Z masm $
-
 libexec_PROGRAMS = planetload_applet
 # bin_PROGRAMS = test
 

@@ -1,5 +1,3 @@
-# $Id: Makefile.am 24 2005-07-18 08:12:27Z masm $
-
 SUBDIRS = src po
 
 EXTRA_DIST = PlanetloadApplet.server.in.in PlanetloadApplet.xml planetload_applet.schemas.in \
