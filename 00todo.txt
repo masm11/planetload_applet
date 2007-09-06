@@ -7,3 +7,4 @@ TODO List
   - *.desktop
   - exe
   - po
+o でかくなる…

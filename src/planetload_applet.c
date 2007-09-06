@@ -673,8 +673,6 @@ static void planetload_applet_start(XfcePanelPlugin *plugin)
     
     app->applet = plugin;
     
-    xfce_panel_plugin_set_expand(plugin, TRUE);
-    
     g_signal_connect(plugin, "free-data", G_CALLBACK(destroy_cb), app);
     g_signal_connect(plugin, "save", G_CALLBACK(save_config_cb), app);
     g_signal_connect(plugin, "size-changed", G_CALLBACK(change_size_cb), app);
