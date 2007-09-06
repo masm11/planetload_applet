@@ -10,32 +10,38 @@ PlanetloadApplet -- Planet と協調動作するネットワークトラフィックモニタ
 
 * 必要なもの
 
-  GNOME 2.2.0 以上
-    glib-2.2		←必須
-    gtk+-2.2		←必須
-    libpanelapplet-2.0	←gnome panel applet 用。
-    libgnomeui-2.0	←color picker や font picker。xfce にあるならそれを使いたいし、ないなら libgnomeui のを使う。gtk にある。gtk 最低バージョン要注意。
-    libgtop-2.0		←もういらないみたい。
+  - glib 2.2 以上
 
-  Planet 4.0.0 以上  (なくても良い)
+  - gtk+ 2.4 以上
+
+  - 以下のうちどちらか
+    - Xfce4 4.4.1 以上
+    - GNOME 2.2.0 以上
+
+  - あると良いもの
+    - Planet 4.0.0 以上
 
 
 * インストール方法
 
-  ./configure
-  make
-  make install
+  Xfce 用:
+    ./configure --with-xfce4
+    make
+    make install
+
+  GNOME 用:
+    ./configure --with-gnome
+    make
+    make install
 
 
 * 使い方
 
-  panel のメニューから、
-    パネルに追加/インターネット/Planetload Applet
-  を実行すると起動します。
+  panel のメニューから追加してください。
 
-  この applet で右クリックするとメニューが表示されます。Planet のスキー
-  ム名も並んでいます。スキーム名を選択すると、Planet が呼び出され、ス
-  キームが切替わります。
+  右クリックするとメニューが表示されます。Planet のスキーム名も並んで
+  います。スキーム名を選択すると、Planet が呼び出され、スキームが切替
+  わります。
 
   netscheme の場所が /sbin でない場合、正常に動作しませんので、以下の
   設定の項を参照して設定してください。

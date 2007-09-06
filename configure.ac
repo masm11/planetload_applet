@@ -56,7 +56,7 @@ AC_ARG_WITH(gnome, [Build with GNOME.], [
     with_gnome=yes;;
   esac
 ],[
-  with_gnome=yes
+  with_gnome=no
 ])
 
 case "$with_gnome" in
@@ -85,12 +85,12 @@ AC_ARG_WITH(xfce4, [Build with Xfce4.], [
     with_xfce4=yes;;
   esac
 ],[
-  with_xfce4=yes
+  with_xfce4=no
 ])
 
 case "$with_xfce4" in
 yes)
-  PKG_CHECK_MODULES(XFCE4, libxfce4panel-1.0 libxfcegui4-1.0)
+  PKG_CHECK_MODULES(XFCE4, libxfce4panel-1.0 libxfcegui4-1.0 libxfce4util-1.0)
   AC_DEFINE(HAVE_XFCE4, 1, [Define to 1 if you have Xfce4.])
   ;;
 no)
@@ -99,6 +99,13 @@ no)
   AC_MSG_ERROR([internal error...])
   ;;
 esac
+
+if test "$with_xfce4$with_gnome" = 'nono'; then
+  AC_MSG_ERROR([You need to specify --with-gnome or --with-xfce4.])
+fi
+if test "$with_xfce4$with_gnome" = 'yesyes'; then
+  AC_MSG_ERROR([You can't specify both --with-gnome and --with-xfce4.])
+fi
 
 GSTUFF_CFLAGS="$GNOME_CFLAGS $XFCE4_CFLAGS $GTK_CFLAGS"
 GSTUFF_LIBS="$GNOME_LIBS $XFCE4_LIBS $GTK_LIBS"
