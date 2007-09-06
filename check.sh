@@ -41,7 +41,7 @@ while read path; do
   
   case "$file" in
   *.[ch])
-    if ! grep '^[^"]*Copyright (C) 2003-2005 Yuuki Harano[^"]*$' $path > /dev/null; then
+    if ! grep '^[^"]*Copyright (C) 2003-2007 Yuuki Harano[^"]*$' $path > /dev/null; then
       echo $path: No copyright. >&2
       echo false
     fi
