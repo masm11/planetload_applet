@@ -8,3 +8,4 @@ TODO List
   - exe
   - po
 o でかくなる…
+- warning 削除
