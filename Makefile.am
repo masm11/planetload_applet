@@ -2,7 +2,7 @@ SUBDIRS = src po
 
 EXTRA_DIST = PlanetloadApplet.server.in.in PlanetloadApplet.xml planetload_applet.schemas.in \
              intltool-extract.in intltool-merge.in intltool-update.in \
-             00todo.txt
+             planetload_applet.desktop.in.in
 
 CLEANFILES = $(server_DATA) $(server_in_files) $(schema_DATA) $(desktop_in_files) $(desktop_files)
 
@@ -62,7 +62,7 @@ desktop_DATA        = $(desktop_files)
 
 @INTLTOOL_DESKTOP_RULE@
 
-$(desktop_in_files): $(srcdir)/$(desktop_in_in_files) Makefile
+$(desktop_in_files): $(desktop_in_in_files) Makefile
 	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" $< > $@.new
 	mv $@.new $@
 
