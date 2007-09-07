@@ -138,13 +138,13 @@ static void get_bytes(char *ifname, struct ifstat_t *ifs)
 	
 	switch (ver) {
 	case 3:
-	    if (sscanf(colon + 1, "%llu %*u %*u %*u %*u %*u %*u %*u %llu %*u %*u %*u %*u %*u %*u %*u",
+	    if (sscanf(colon + 1, "%" G_GUINT64_FORMAT " %*u %*u %*u %*u %*u %*u %*u %" G_GUINT64_FORMAT " %*u %*u %*u %*u %*u %*u %*u",
 			    &in, &out) != 2)
 		continue;
 	    break;
 	    
 	case 2:
-	    if (sscanf(colon + 1, "%llu %*u %*u %*u %*u %*u %llu %*u %*u %*u %*u %*u %*u",
+	    if (sscanf(colon + 1, "%" G_GUINT64_FORMAT " %*u %*u %*u %*u %*u %" G_GUINT64_FORMAT " %*u %*u %*u %*u %*u %*u",
 			    &in, &out) != 2)
 		continue;
 	    break;
