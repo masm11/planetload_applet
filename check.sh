@@ -5,7 +5,7 @@ top_srcdir="$2"
 
 find $distdir			\
   -name autom4te.cache -prune -o	\
-  -name .svn -prune -o	\
+  -name .hg -prune -o	\
   -type f		\
   \! -name '*~'		\
   \! -name Makefile.in	\
@@ -33,11 +33,6 @@ find $distdir			\
   -print |
 while read path; do
   file=`echo $path | sed 's,.*/,,'`
-
-  if ! grep '[\$]Id: '"$file"' .* [\$]' $path > /dev/null; then
-    echo $path: No Id. >&2
-    echo false
-  fi
   
   case "$file" in
   *.[ch])
@@ -62,8 +57,8 @@ if [ $? -eq 0 ]; then
   exit 1
 fi
 
-if ( cd $top_srcdir; svn status ) 2>&1 | fgrep -v "$distdir" | grep .; then
-    echo bad svn status >&2
+if ( cd $top_srcdir; hg status ) 2>&1 | fgrep -v "$distdir" | grep .; then
+    echo bad hg status >&2
     exit 1
 else
     :
