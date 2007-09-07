@@ -9,7 +9,7 @@ CLEANFILES = $(server_DATA) $(server_in_files) $(schema_DATA) $(desktop_DATA)
 distcheck-hook:
 	$(srcdir)/check.sh $(distdir) $(top_srcdir)
 
-DISTCHECK_CONFIGURE_FLAGS = --disable-schemas-install
+DISTCHECK_CONFIGURE_FLAGS = --with-xfce4
 
 ####
 #### for GNOME.
