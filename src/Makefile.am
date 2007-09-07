@@ -1,4 +1,13 @@
+plugindir = $(libexecdir)/xfce4/panel-plugins
+
+if HAVE_XFCE4
+plugin_PROGRAMS = planetload_applet
+endif
+
+if HAVE_GNOME
 libexec_PROGRAMS = planetload_applet
+endif
+
 # bin_PROGRAMS = test
 
 planetload_applet_SOURCES =	\

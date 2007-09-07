@@ -67,9 +67,11 @@ yes)
   fi
   AM_GCONF_SOURCE_2
   AC_DEFINE(HAVE_GNOME, 1, [Define to 1 if you have GNOME.])
+  AM_CONDITIONAL([HAVE_GNOME], [true])
   ;;
 no)
   AM_CONDITIONAL([GCONF_SCHEMAS_INSTALL], [false])
+  AM_CONDITIONAL([HAVE_GNOME], [false])
   ;;
 *)
   AC_MSG_ERROR([internal error...])
@@ -91,8 +93,10 @@ case "$with_xfce4" in
 yes)
   PKG_CHECK_MODULES(XFCE4, libxfce4panel-1.0 libxfcegui4-1.0 libxfce4util-1.0)
   AC_DEFINE(HAVE_XFCE4, 1, [Define to 1 if you have Xfce4.])
+  AM_CONDITIONAL([HAVE_XFCE4], [true])
   ;;
 no)
+  AM_CONDITIONAL([HAVE_XFCE4], [false])
   ;;
 *)
   AC_MSG_ERROR([internal error...])
