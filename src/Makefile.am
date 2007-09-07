@@ -1,6 +1,5 @@
-plugindir = $(libexecdir)/xfce4/panel-plugins
-
 if HAVE_XFCE4
+plugindir = $(libexecdir)/xfce4/panel-plugins
 plugin_PROGRAMS = planetload_applet
 endif
 
@@ -46,8 +45,7 @@ noinst_HEADERS =
 #    test.c			\
 #    ifstat_linux.c
 
-gnomelocaledir = @gnomelocaledir@
-AM_CPPFLAGS = $(GSTUFF_CFLAGS) -DGNOMELOCALEDIR=\"$(gnomelocaledir)\"
+AM_CPPFLAGS = $(GSTUFF_CFLAGS) -DLOCALEDIR=\"$(localedir)\"
 AM_CFLAGS = -Wall
 planetload_applet_LDADD = $(GSTUFF_LIBS)
 

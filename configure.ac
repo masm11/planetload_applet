@@ -126,9 +126,6 @@ GETTEXT_PACKAGE=planetload_applet
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Package name for GNU gettext])
 
-gnomelocaledir='${prefix}/${DATADIRNAME}/locale'
-AC_SUBST(gnomelocaledir)
-
 #
 AC_CONFIG_FILES([Makefile src/Makefile po/Makefile.in
                  intltool-extract intltool-merge intltool-update])

@@ -685,8 +685,7 @@ static void planetload_applet_start(XfcePanelPlugin *plugin)
     struct app_t *app;
     GtkWidget *vbox;
     
-    // xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
-    xfce_textdomain("planetload_applet", "/usr/share/locale", "UTF-8");
+    xfce_textdomain (GETTEXT_PACKAGE, LOCALEDIR, NULL);
     
     app = g_new(struct app_t, 1);
     memset(app, 0, sizeof *app);
