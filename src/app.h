@@ -43,6 +43,9 @@ struct app_t {
     GtkWidget *pack;
     GtkWidget *scheme_label_bar, *scheme_label_text, *menu;
     GtkTooltips *tooltips;
+#ifdef HAVE_XFCE4
+    GList *rmenu_shown_items;
+#endif
     
     gint timeout_id;
     gint interval;

@@ -340,6 +340,28 @@ static void rmenu_setup(struct app_t *app, GList *schemes)
 static void rmenu_setup(struct app_t *app, GList *schemes)
 {
     GList *lp;
+    
+    /* menu item を削除する方法がわからない。
+     * xfce のソースを見る限り、
+     *  - gtk_widget_destroy(item) して、
+     *    plugin に持たせてる insert position を reset する。
+     *  - gtk_widget_hide(item) する。
+     * 辺りの手が考えられる。
+     * 内部使用の値を勝手に書き換えるのは躊躇われるので、
+     * hide することにした。
+     * もちろん、menu は children として認識し続けてるし、
+     * item に関連したデータもメモリ中に残したままである。
+     * 何度も rmenu_setup() すると、そのうち遅くなってくるかも…
+     */
+    while (app->rmenu_shown_items != NULL) {
+	GtkWidget *item = app->rmenu_shown_items->data;
+	
+	gtk_widget_hide(item);
+	
+	app->rmenu_shown_items = g_list_delete_link(
+		app->rmenu_shown_items, app->rmenu_shown_items);
+    }
+    
     for (lp = schemes; lp != NULL; lp = g_list_next(lp)) {
 	gchar *str = g_strdup(lp->data);
 	
@@ -348,6 +370,8 @@ static void rmenu_setup(struct app_t *app, GList *schemes)
 	g_signal_connect(G_OBJECT(item), "activate", G_CALLBACK(scheme_cb), app);
 	gtk_widget_show(item);
 	xfce_panel_plugin_menu_insert_item(app->applet, GTK_MENU_ITEM(item));
+	
+	app->rmenu_shown_items = g_list_prepend(app->rmenu_shown_items, item);
     }
 }
 #endif
