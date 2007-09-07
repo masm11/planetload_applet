@@ -4,7 +4,7 @@ EXTRA_DIST = PlanetloadApplet.server.in.in PlanetloadApplet.xml planetload_apple
              intltool-extract.in intltool-merge.in intltool-update.in \
              00todo.txt
 
-CLEANFILES = $(server_DATA) $(server_in_files) $(schema_DATA) $(desktop_DATA)
+CLEANFILES = $(server_DATA) $(server_in_files) $(schema_DATA) $(desktop_in_files) $(desktop_files)
 
 distcheck-hook:
 	$(srcdir)/check.sh $(distdir) $(top_srcdir)
@@ -62,7 +62,7 @@ desktop_DATA        = $(desktop_files)
 
 @INTLTOOL_DESKTOP_RULE@
 
-$(desktop_in_files): $(desktop_in_in_files) Makefile
+$(desktop_in_files): $(srcdir)/$(desktop_in_in_files) Makefile
 	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" $< > $@.new
 	mv $@.new $@
 
