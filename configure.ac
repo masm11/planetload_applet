@@ -3,7 +3,7 @@
 
 AC_PREREQ(2.57)
 
-AC_INIT(planetload_applet, 3.0, masm@flowernet.gr.jp)
+AC_INIT(planetload_applet, 3.0.1, masm@flowernet.gr.jp)
 AC_CONFIG_SRCDIR(src/planetload_applet.c)
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
 
@@ -47,7 +47,7 @@ AC_ARG_ENABLE(debug, [  --enable-debug                Enable debug output],
 # 
 PKG_CHECK_MODULES(GTK, gtk+-2.0 glib-2.0)
 
-AC_ARG_WITH(gnome, [Build with GNOME.], [
+AC_ARG_WITH(gnome, [  --with-gnome            Build with GNOME.], [
   case "$withval" in
   no)
     with_gnome=no;;
@@ -78,7 +78,7 @@ no)
   ;;
 esac
 
-AC_ARG_WITH(xfce4, [Build with Xfce4.], [
+AC_ARG_WITH(xfce4, [  --with-xfce4            Build with Xfce4.], [
   case "$withval" in
   no)
     with_xfce4=no;;
