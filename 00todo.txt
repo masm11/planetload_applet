@@ -1,11 +1,11 @@
 TODO List
 
-- $Id$ 削除。copyright 修正。
-- メニューの scheme 名を削除。
+o $Id$ 削除。copyright 修正。
+o メニューの scheme 名を削除。
 - GNOME 確認。
 - install
   - *.desktop
   - exe
   - po
 o でかくなる…
-- warning 削除
+o warning 削除
