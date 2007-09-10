@@ -60,10 +60,11 @@ void about(BonoboUIComponent *uic, gpointer data, const gchar *verbname)
 	return;
     }
     
-    gchar **author_list = g_new(const gchar *, NAUTHORS + 1);
+    int i;
+    gchar **author_list = g_new(gchar *, NAUTHORS + 1);
     for (i = 0; i < NAUTHORS; i++) {
 	author_list[i] = g_strdup_printf("%s <%s>",
-		author[i].name, author[i].mail);
+		authors[i].name, authors[i].mail);
     }
     author_list[i] = NULL;
     
@@ -72,7 +73,7 @@ void about(BonoboUIComponent *uic, gpointer data, const gchar *verbname)
 	    "(C) " COPYRIGHT_YEAR " " COPYRIGHT_HOLDER,
 	    _("Released under the GNU General Public License.\n\n"
 	    "A network traffic monitor, cooperative with Planet."),
-	    author_list,
+	    (const gchar **) author_list,
 	    NULL,
 	    NULL,
 	    NULL);

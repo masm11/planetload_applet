@@ -493,7 +493,7 @@ static void change_orient(struct app_t *app, int is_vert)
 static void change_orient_cb(PanelApplet *applet, gint arg1, gpointer closure)
 {
     struct app_t *app = closure;
-    int is_vert = get_applet_ver(applet);
+    int is_vert = get_applet_vert(applet);
     
     change_orient(app, is_vert);
 }
@@ -670,6 +670,7 @@ static gboolean planetload_applet_start(
     return TRUE;
 }
 
+#define GNOMELOCALEDIR LOCALEDIR
 PANEL_APPLET_BONOBO_FACTORY(
 	"OAFIID:PlanetloadApplet_Factory",
 	PANEL_TYPE_APPLET,
