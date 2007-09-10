@@ -3,7 +3,7 @@
 
 AC_PREREQ(2.57)
 
-AC_INIT(planetload_applet, 3.0.1, masm@flowernet.gr.jp)
+AC_INIT(planetload_applet, 3.0.2, masm@flowernet.gr.jp)
 AC_CONFIG_SRCDIR(src/planetload_applet.c)
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
 
